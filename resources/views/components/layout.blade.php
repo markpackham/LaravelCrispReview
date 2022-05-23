@@ -31,6 +31,7 @@
         {{ $slot }}
     </main>
     @include('partials._footer')
+    <x-flash-message />
 </body>
 
 </html>
