@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Owner;
-use App\Http\Requests\StoreOwnerRequest;
-use App\Http\Requests\UpdateOwnerRequest;
+use App\Models\Flavour;
+use App\Http\Requests\StoreFlavourRequest;
+use App\Http\Requests\UpdateFlavourRequest;
 
-class OwnerController extends Controller
+class FlavourController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class OwnerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreOwnerRequest  $request
+     * @param  \App\Http\Requests\StoreFlavourRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreOwnerRequest $request)
+    public function store(StoreFlavourRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class OwnerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Owner  $owner
+     * @param  \App\Models\Flavour  $flavour
      * @return \Illuminate\Http\Response
      */
-    public function show(Owner $owner)
+    public function show(Flavour $flavour)
     {
         //
     }
@@ -53,10 +53,10 @@ class OwnerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Owner  $owner
+     * @param  \App\Models\Flavour  $flavour
      * @return \Illuminate\Http\Response
      */
-    public function edit(Owner $owner)
+    public function edit(Flavour $flavour)
     {
         //
     }
@@ -64,11 +64,11 @@ class OwnerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateOwnerRequest  $request
-     * @param  \App\Models\Owner  $owner
+     * @param  \App\Http\Requests\UpdateFlavourRequest  $request
+     * @param  \App\Models\Flavour  $flavour
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOwnerRequest $request, Owner $owner)
+    public function update(UpdateFlavourRequest $request, Flavour $flavour)
     {
         //
     }
@@ -76,10 +76,10 @@ class OwnerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Owner  $owner
+     * @param  \App\Models\Flavour  $flavour
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Owner $owner)
+    public function destroy(Flavour $flavour)
     {
         //
     }

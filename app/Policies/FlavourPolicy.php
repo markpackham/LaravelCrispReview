@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Owner;
+use App\Models\Flavour;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class OwnerPolicy
+class FlavourPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class OwnerPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Owner  $owner
+     * @param  \App\Models\Flavour  $flavour
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Owner $owner)
+    public function view(User $user, Flavour $flavour)
     {
         //
     }
@@ -48,10 +48,10 @@ class OwnerPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Owner  $owner
+     * @param  \App\Models\Flavour  $flavour
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Owner $owner)
+    public function update(User $user, Flavour $flavour)
     {
         //
     }
@@ -60,10 +60,10 @@ class OwnerPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Owner  $owner
+     * @param  \App\Models\Flavour  $flavour
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Owner $owner)
+    public function delete(User $user, Flavour $flavour)
     {
         //
     }
@@ -72,10 +72,10 @@ class OwnerPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Owner  $owner
+     * @param  \App\Models\Flavour  $flavour
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Owner $owner)
+    public function restore(User $user, Flavour $flavour)
     {
         //
     }
@@ -84,10 +84,10 @@ class OwnerPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Owner  $owner
+     * @param  \App\Models\Flavour  $flavour
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Owner $owner)
+    public function forceDelete(User $user, Flavour $flavour)
     {
         //
     }
