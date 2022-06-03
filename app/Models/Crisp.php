@@ -20,12 +20,12 @@ class Crisp extends Model
     // Relationship to Brand
     public function brand()
     {
-        return $this->belongsTo(Brand::class, 'brand_id');
+        return $this->belongsTo(Brand::class, 'brand_name');
     }
 
     // Relationship to Flavour
     public function flavour()
     {
-        return $this->belongsTo(Flavour::class, 'flavour_id');
+        return $this->belongsTo(Flavour::class, 'flavour_name');
     }
 }

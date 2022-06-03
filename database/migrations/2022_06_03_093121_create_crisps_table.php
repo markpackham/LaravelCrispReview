@@ -20,8 +20,8 @@ class CreateCrispsTable extends Migration
             $table->int('crisp_weight');
             $table->int('crisp_review_score')->nullable();
             $table->longText('crisp_review')->nullable();
-            $table->foreignId('brand_id')->constrained()->onDelete('cascade');
-            $table->foreignId('flavour_id')->constrained()->onDelete('cascade');
+            $table->foreignId('brand_name')->constrained()->onDelete('cascade');
+            $table->foreignId('flavour_name')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
