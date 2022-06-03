@@ -15,11 +15,13 @@ class CreateCrispsTable extends Migration
     {
         Schema::create('crisps', function (Blueprint $table) {
             $table->id();
-            $table->string('crisp_name');
+            $table->string('crisp_name')->unique();
             $table->string('crisp_image')->nullable();
             $table->int('crisp_weight');
             $table->int('crisp_review_score')->nullable();
             $table->longText('crisp_review')->nullable();
+            $table->foreignId('brand_name')->constrained()->onDelete('cascade');
+            $table->foreignId('flavour_name')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

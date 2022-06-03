@@ -15,7 +15,7 @@ class CreatePotatoesTable extends Migration
     {
         Schema::create('potatoes', function (Blueprint $table) {
             $table->id();
-            $table->string('potato_name');
+            $table->string('potato_name')->unique();
             $table->string('potato_country');
             $table->timestamps();
         });

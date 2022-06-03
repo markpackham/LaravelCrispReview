@@ -15,7 +15,7 @@ class CreateFlavoursTable extends Migration
     {
         Schema::create('flavours', function (Blueprint $table) {
             $table->id();
-            $table->string('flavour_name');
+            $table->string('flavour_name')->unique();
             $table->timestamps();
         });
     }
