@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\CrispController;
+use App\Http\Controllers\FlavourController;
+use App\Http\Controllers\PotatoController;
 
 /*
 |--------------------------------------------------------------------------

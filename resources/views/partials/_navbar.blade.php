@@ -11,8 +11,18 @@
             </a>
         </li>
         <li>
+            <a href="{{ url('/brands/create') }}">
+                Create Brand
+            </a>
+        </li>
+        <li>
             <a href="{{ url('/companies') }}">
                 Companies
+            </a>
+        </li>
+        <li>
+            <a href="{{ url('/brands/create') }}">
+                Create Company
             </a>
         </li>
         <li>
@@ -21,13 +31,28 @@
             </a>
         </li>
         <li>
+            <a href="{{ url('/brands/create') }}">
+                Create Crisps
+            </a>
+        </li>
+        <li>
             <a href="{{ url('/flavours') }}">
                 Flavours
             </a>
         </li>
         <li>
+            <a href="{{ url('/brands/create') }}">
+                Create Flavour
+            </a>
+        </li>
+        <li>
             <a href="{{ url('/potatoes') }}">
                 Potatoes
+            </a>
+        </li>
+        <li>
+            <a href="{{ url('/brands/create') }}">
+                Create Potatoes
             </a>
         </li>
     </ul>

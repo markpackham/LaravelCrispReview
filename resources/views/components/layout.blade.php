@@ -26,15 +26,17 @@
     <title>Crisp Review</title>
 </head>
 
-<body class="mb-48">
-    @include('partials._navbar')
-    <main>
-        <div class="container">
+<body>
+    <div class="md:container md:mx-auto">
+        @include('partials._navbar')
+        <main>
+
             {{ $slot }}
-        </div>
-    </main>
-    @include('partials._footer')
-    <x-flash-message />
+
+        </main>
+        @include('partials._footer')
+        <x-flash-message />
+    </div>
 </body>
 
 </html>
