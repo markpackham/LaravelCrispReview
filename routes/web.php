@@ -24,19 +24,13 @@ Route::get('/', function () {
 });
 
 // Brands
-Route::get('/brands', function () {
-    return view('brands.index');
-});
+Route::get('/brands', [BrandController::class, 'index']);
 
 // Companies
-Route::get('/companies', function () {
-    return view('companies.index');
-});
+Route::get('/companies', [CompanyController::class, 'index']);
 
 // Crisps
-Route::get('/crisps', function () {
-    return view('crisps.index');
-});
+Route::get('/crisps', [CrispController::class, 'index']);
 
 // Flavours
 Route::get('/flavours', [FlavourController::class, 'index']);
