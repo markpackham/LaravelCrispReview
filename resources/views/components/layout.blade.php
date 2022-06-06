@@ -22,13 +22,16 @@
             },
         }
     </script>
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <title>Crisp Review</title>
 </head>
 
 <body class="mb-48">
     @include('partials._navbar')
     <main>
-        {{ $slot }}
+        <div class="container">
+            {{ $slot }}
+        </div>
     </main>
     @include('partials._footer')
     <x-flash-message />

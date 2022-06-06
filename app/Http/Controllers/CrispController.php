@@ -15,7 +15,9 @@ class CrispController extends Controller
      */
     public function index()
     {
-        //
+        return view('crisps.index', [
+            'crisps' => Crisp::latest()->paginate(20)
+        ]);
     }
 
     /**

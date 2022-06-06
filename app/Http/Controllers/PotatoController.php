@@ -15,7 +15,9 @@ class PotatoController extends Controller
      */
     public function index()
     {
-        //
+        return view('potatoes.index', [
+            'potatoes' => Potato::latest()->paginate(20)
+        ]);
     }
 
     /**

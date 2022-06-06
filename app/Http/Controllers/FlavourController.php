@@ -15,7 +15,9 @@ class FlavourController extends Controller
      */
     public function index()
     {
-        //
+        return view('flavours.index', [
+            'flavours' => Flavour::latest()->paginate(20)
+        ]);
     }
 
     /**
