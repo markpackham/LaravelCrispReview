@@ -6,52 +6,52 @@
             </a>
         </li>
         <li>
-            <a href="{{ url('/brands') }}">
+            <a href="{{ route('brands') }}">
                 Brands
             </a>
         </li>
         <li>
-            <a href="{{ url('/brands/create') }}">
+            <a href="{{ route('brands-create') }}">
                 Create Brand
             </a>
         </li>
         <li>
-            <a href="{{ url('/companies') }}">
+            <a href="{{ route('companies') }}">
                 Companies
             </a>
         </li>
         <li>
-            <a href="{{ url('/brands/create') }}">
+            <a href="{{ route('companies-create') }}">
                 Create Company
             </a>
         </li>
         <li>
-            <a href="{{ url('/crisps') }}">
+            <a href="{{ route('crisps') }}">
                 Crisps
             </a>
         </li>
         <li>
-            <a href="{{ url('/brands/create') }}">
+            <a href="{{ route('crisps-create') }}">
                 Create Crisps
             </a>
         </li>
         <li>
-            <a href="{{ url('/flavours') }}">
+            <a href="{{ route('flavours') }}">
                 Flavours
             </a>
         </li>
         <li>
-            <a href="{{ url('/brands/create') }}">
+            <a href="{{ route('flavours-create') }}">
                 Create Flavour
             </a>
         </li>
         <li>
-            <a href="{{ url('/potatoes') }}">
+            <a href="{{ route('potatoes') }}">
                 Potatoes
             </a>
         </li>
         <li>
-            <a href="{{ url('/brands/create') }}">
+            <a href="{{ route('potatoes-create') }}">
                 Create Potatoes
             </a>
         </li>
