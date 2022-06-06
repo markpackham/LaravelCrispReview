@@ -39,9 +39,7 @@ Route::get('/crisps', function () {
 });
 
 // Flavours
-Route::get('/flavours', function () {
-    return view('flavours.index');
-});
+Route::get('/flavours', [FlavourController::class, 'index']);
 
 // Potatoes
 Route::get('/potatoes', [PotatoController::class, 'index']);
