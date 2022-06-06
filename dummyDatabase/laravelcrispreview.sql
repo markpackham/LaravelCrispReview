@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2022 at 02:05 PM
+-- Generation Time: Jun 06, 2022 at 02:20 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -150,6 +150,25 @@ CREATE TABLE `potatoes` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `potatoes`
+--
+
+INSERT INTO `potatoes` (`id`, `potato_name`, `potato_country`, `created_at`, `updated_at`) VALUES
+(1, 'Agata', 'Netherlands', NULL, NULL),
+(2, 'Bamberg', 'Germany', NULL, NULL),
+(3, 'Black Champion', 'Ireland', NULL, NULL),
+(4, 'British Queen', 'UK', NULL, NULL),
+(5, 'Dejima', 'Japan', NULL, NULL),
+(6, 'Irish White', 'Ireland', NULL, NULL),
+(7, 'King Edward', 'UK', NULL, NULL),
+(8, 'Pink Fir Apple', 'France', NULL, NULL),
+(9, 'Ranger Russet', 'USA', NULL, NULL),
+(10, 'Red Gold', 'Canada', NULL, NULL),
+(11, 'Russian Blue', 'Russia', NULL, NULL),
+(12, 'Shetland Black', 'UK', NULL, NULL),
+(13, 'Yukon Gold', 'Canada', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -277,7 +296,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `potatoes`
 --
 ALTER TABLE `potatoes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
