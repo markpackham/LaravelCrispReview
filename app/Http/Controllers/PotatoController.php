@@ -46,7 +46,7 @@ class PotatoController extends Controller
 
         Potato::create($formFields);
 
-        return redirect('/potatoes')->with('message', 'Potato created successfully!');
+        return redirect()->route('potatoes')->with('message', 'Potato created successfully!');
     }
 
     /**
@@ -99,6 +99,6 @@ class PotatoController extends Controller
     public function destroy(Potato $potato)
     {
         $potato->delete();
-        return redirect('/potatoes')->with('message', 'Potato deleted successfully');
+        return redirect()->route('potatoes')->with('message', 'Potato deleted successfully');
     }
 }

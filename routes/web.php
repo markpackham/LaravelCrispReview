@@ -24,16 +24,16 @@ Route::get('/', function () {
 });
 
 // Brands
-Route::get('/brands', [BrandController::class, 'index']);
+Route::get('/brands', [BrandController::class, 'index'])->name('brands');
 
 // Companies
-Route::get('/companies', [CompanyController::class, 'index']);
+Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
 
 // Crisps
-Route::get('/crisps', [CrispController::class, 'index']);
+Route::get('/crisps', [CrispController::class, 'index'])->name('crisps');
 
 // Flavours
-Route::get('/flavours', [FlavourController::class, 'index']);
+Route::get('/flavours', [FlavourController::class, 'index'])->name('flavours');
 
 // Potatoes
-Route::get('/potatoes', [PotatoController::class, 'index']);
+Route::get('/potatoes', [PotatoController::class, 'index'])->name('potatoes');
