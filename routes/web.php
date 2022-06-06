@@ -28,23 +28,36 @@ Route::get('/brands', [BrandController::class, 'index'])->name('brands');
 
 Route::get('/brands/create', [BrandController::class, 'create'])->name('brands-create');
 
+Route::post('/brands', [BrandController::class, 'store']);
+
+
 // Companies
 Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
 
 Route::get('/companies/create', [CompanyController::class, 'create'])->name('companies-create');
+
+Route::post('/companies', [CompanyController::class, 'store']);
+
 
 // Crisps
 Route::get('/crisps', [CrispController::class, 'index'])->name('crisps');
 
 Route::get('/crisps/create', [CrispController::class, 'create'])->name('crisps-create');
 
+Route::post('/crisps', [CrispController::class, 'store']);
+
+
 // Flavours
 Route::get('/flavours', [FlavourController::class, 'index'])->name('flavours');
 
 Route::get('/flavours/create', [FlavourController::class, 'create'])->name('flavours-create');
+
+Route::post('/flavours', [FlavourController::class, 'store']);
 
 
 // Potatoes
 Route::get('/potatoes', [PotatoController::class, 'index'])->name('potatoes');
 
 Route::get('/potatoes/create', [PotatoController::class, 'create'])->name('potatoes-create');
+
+Route::post('/potatoes', [PotatoController::class, 'store']);
