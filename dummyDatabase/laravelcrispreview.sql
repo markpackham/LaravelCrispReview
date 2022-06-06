@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2022 at 02:20 PM
+-- Generation Time: Jun 06, 2022 at 05:46 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -32,8 +32,22 @@ CREATE TABLE `brands` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `brand_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `company_name` bigint(20) UNSIGNED NOT NULL
+  `company_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `brands`
+--
+
+INSERT INTO `brands` (`id`, `created_at`, `updated_at`, `brand_name`, `company_id`) VALUES
+(1, NULL, NULL, 'Golden Cross', 1),
+(2, NULL, NULL, 'Monster Munch', 2),
+(3, NULL, NULL, 'Pringles', 3),
+(4, NULL, NULL, 'Skips', 4),
+(5, NULL, NULL, 'Walkers', 2),
+(6, NULL, NULL, 'Golden Wonder', 5),
+(7, NULL, NULL, 'Chipsticks', 6),
+(8, NULL, NULL, 'Mackie\'s of Scotland', 7);
 
 -- --------------------------------------------------------
 
@@ -50,6 +64,19 @@ CREATE TABLE `companies` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `companies`
+--
+
+INSERT INTO `companies` (`id`, `company_name`, `company_address`, `company_phone`, `company_website`, `created_at`, `updated_at`) VALUES
+(1, 'Nisha Enterprises incorporating Golden Cross Snacks and Millar Confectionary', '5A Grange Rd, Houstoun Industrial Estate, Livingston, Scotland, EH54 5DE', '01506 443 383', 'https://www.nishaenterprises.co.uk/', NULL, NULL),
+(2, 'Walkers Snacks Ltd', '450 South Oak Way, Green Park, Reading RG2 6UW', '800 274 777', 'https://www.walkers.co.uk/', NULL, NULL),
+(3, 'Kellogg Co.', 'Orange Tower Media City Uk, Salford, Greater Manchester, United Kingdom, M50 2HF', '0800 626066', 'https://www.kelloggs.co.uk/en_GB/home.html', NULL, NULL),
+(4, 'KP Snacks Limited', 'Fifth Floor, The Urban Building, 3-9 Albert Street, Slough, SL1 2BE', '0800 917 4494', 'https://www.kpsnacks.com/', NULL, NULL),
+(5, 'Tayto Group Limited', 'Princewood Road, Earlstrees Industrial Estate, Corby, Northamptonshire NN17 4AP, The Urban Building, 3-9 Albert Street, Slough, SL1 2BE', '0800 917 4494', 'https://www.taytogroup.com/', NULL, NULL),
+(6, 'PepsiCo Australia Holdings Pty Ltd', 'L 4 799 Pacific Hwy Chatswood, New South Wales, 2067 Australia', '61-1800025789', 'https://smiths.com.au/', NULL, NULL),
+(7, 'Mackie’s Crisps', 'Mackie’s at Taypack, Inchcoonans, Errol, Perthshire PH2 7RB', '01821 641250', 'https://www.mackiescrisps.co.uk/', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -79,6 +106,32 @@ CREATE TABLE `flavours` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `flavours`
+--
+
+INSERT INTO `flavours` (`id`, `flavour_name`, `created_at`, `updated_at`) VALUES
+(1, 'Spicey', NULL, NULL),
+(2, 'Pickled Onion', NULL, NULL),
+(3, 'Salt and Vinegar', NULL, NULL),
+(4, 'Ready Salted', NULL, NULL),
+(5, 'Cheese and Onion', NULL, NULL),
+(6, 'Ham and Bacon', NULL, NULL),
+(7, 'Prawn and Cocktail', NULL, NULL),
+(8, 'Mustard', NULL, NULL),
+(9, 'Chicken', NULL, NULL),
+(10, 'Worcestershire Sauce', NULL, NULL),
+(11, 'Haggis and Black Pepper', NULL, NULL),
+(12, 'BBQ', NULL, NULL),
+(13, 'Beef', NULL, NULL),
+(14, 'Aberdeen Angus', NULL, NULL),
+(15, 'Mustard and Honey', NULL, NULL),
+(16, 'Paprika', NULL, NULL),
+(17, 'Beef and Onion', NULL, NULL),
+(18, 'Cheese', NULL, NULL),
+(19, 'Tomato', NULL, NULL),
+(20, 'Caramelized Red Onion', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -260,13 +313,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -278,7 +331,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `flavours`
 --
 ALTER TABLE `flavours`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `migrations`

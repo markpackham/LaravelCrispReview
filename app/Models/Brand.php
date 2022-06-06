@@ -16,6 +16,6 @@ class Brand extends Model
     // Relationship to Company
     public function company()
     {
-        return $this->belongsTo(Company::class, 'company_name');
+        return $this->belongsTo(Company::class, 'company_id');
     }
 }
