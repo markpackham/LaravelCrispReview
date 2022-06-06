@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Potato;
 use App\Http\Requests\StorePotatoRequest;
 use App\Http\Requests\UpdatePotatoRequest;
+use Illuminate\Validation\Rule;
 
 class PotatoController extends Controller
 {
@@ -27,7 +28,7 @@ class PotatoController extends Controller
      */
     public function create()
     {
-        //
+        return view('potatoes.create');
     }
 
     /**
@@ -38,7 +39,14 @@ class PotatoController extends Controller
      */
     public function store(StorePotatoRequest $request)
     {
-        //
+        $formFields = $request->validate([
+            'potato_name' => ['required', Rule::unique('potato_name', 'potatoes')],
+            'potato_country' => 'required',
+        ]);
+
+        Potato::create($formFields);
+
+        return redirect('/potatoes')->with('message', 'Potato created successfully!');
     }
 
     /**
@@ -49,7 +57,9 @@ class PotatoController extends Controller
      */
     public function show(Potato $potato)
     {
-        //
+        return view('potatoes.show', [
+            'potato' => $potato
+        ]);
     }
 
     /**
@@ -60,7 +70,7 @@ class PotatoController extends Controller
      */
     public function edit(Potato $potato)
     {
-        //
+        return view('potatoes.edit', ['potato' => $potato]);
     }
 
     /**
@@ -72,7 +82,12 @@ class PotatoController extends Controller
      */
     public function update(UpdatePotatoRequest $request, Potato $potato)
     {
-        //
+        $formFields = $request->validate([
+            'potato_name' => 'required',
+            'potato_country' => 'required',
+        ]);
+
+        return back()->with('message', 'Potato updated successfully!');
     }
 
     /**
@@ -83,6 +98,7 @@ class PotatoController extends Controller
      */
     public function destroy(Potato $potato)
     {
-        //
+        $potato->delete();
+        return redirect('/potatoes')->with('message', 'Potato deleted successfully');
     }
 }
