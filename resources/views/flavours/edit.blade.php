@@ -1,6 +1,6 @@
 <x-layout>
     <h1>Edit Flavour</h1>
-    <form method="POST" action="{{ route('flavours') }}">
+    <form method="POST" action="/flavours/{{ $flavour->id }}">
         @csrf
         @method('PUT')
         <div class="form-group">
