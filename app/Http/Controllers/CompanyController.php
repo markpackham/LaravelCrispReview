@@ -27,7 +27,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('companies.create');
     }
 
     /**
@@ -38,7 +38,16 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'company_name' => ['required', Rule::unique('companies', 'company_name')],
+            'company_address' => 'required',
+            'company_phone' => 'required',
+            'company_website' => 'required',
+        ]);
+
+        Company::create($formFields);
+
+        return redirect()->route('companies')->with('message', 'Company created successfully!');
     }
 
     /**

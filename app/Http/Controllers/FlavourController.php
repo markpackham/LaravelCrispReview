@@ -28,7 +28,7 @@ class FlavourController extends Controller
      */
     public function create()
     {
-        //
+        return view('flavours.create');
     }
 
     /**
@@ -39,7 +39,13 @@ class FlavourController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'flavour_name' => ['required', Rule::unique('flavours', 'flavour_name')],
+        ]);
+
+        Flavour::create($formFields);
+
+        return redirect()->route('flavours')->with('message', 'Flavour created successfully!');
     }
 
     /**
