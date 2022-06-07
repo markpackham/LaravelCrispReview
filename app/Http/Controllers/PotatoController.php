@@ -87,7 +87,7 @@ class PotatoController extends Controller
         ]);
 
         $potato->update($formFields);
-        return back()->with('message', 'Potato updated successfully!');
+        return redirect()->route('potatoes')->with('message', 'Potato updated successfully!');
     }
 
     /**

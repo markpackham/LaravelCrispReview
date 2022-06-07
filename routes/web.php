@@ -38,6 +38,14 @@ Route::get('/companies/create', [CompanyController::class, 'create'])->name('com
 
 Route::post('/companies', [CompanyController::class, 'store']);
 
+Route::get('/companies/{company}/edit', [CompanyController::class, 'edit'])->name('companies-edit');
+
+Route::put('/companies/{company}', [CompanyController::class, 'update']);
+
+Route::delete('/companies/{company}', [CompanyController::class, 'destroy']);
+
+Route::get('/companies/{company}', [CompanyController::class, 'show'])->name('companies-show');
+
 
 // Crisps
 Route::get('/crisps', [CrispController::class, 'index'])->name('crisps');

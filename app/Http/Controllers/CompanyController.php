@@ -58,7 +58,9 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        //
+        return view('companies.show', [
+            'company' => $company
+        ]);
     }
 
     /**
@@ -69,7 +71,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        return view('companies.edit', ['company' => $company]);
     }
 
     /**
@@ -81,7 +83,16 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        $formFields = $request->validate([
+            'company_name' => 'required',
+            'company_address' => 'required',
+            'company_phone' => 'required',
+            'company_website' => 'required',
+        ]);
+
+        $company->update($formFields);
+
+        return redirect()->route('companies')->with('message', 'Company updated successfully!');
     }
 
     /**
@@ -92,6 +103,7 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+        $company->delete();
+        return redirect()->route('companies')->with('message', 'Company deleted successfully');
     }
 }

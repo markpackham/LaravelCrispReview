@@ -86,7 +86,7 @@ class FlavourController extends Controller
         ]);
 
         $flavour->update($formFields);
-        return back()->with('message', 'Flavour updated successfully!');
+        return redirect()->route('flavours')->with('message', 'Flavour updated successfully!');
     }
 
     /**
