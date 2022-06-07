@@ -54,6 +54,14 @@ Route::get('/crisps/create', [CrispController::class, 'create'])->name('crisps-c
 
 Route::post('/crisps', [CrispController::class, 'store']);
 
+Route::get('/crisps/{crisp}/edit', [CrispController::class, 'edit'])->name('crisps-edit');
+
+Route::put('/crisps/{crisp}', [CrispController::class, 'update']);
+
+Route::delete('/crisps/{crisp}', [CrispController::class, 'destroy']);
+
+Route::get('/crisps/{crisp}', [CrispController::class, 'show'])->name('crisps-show');
+
 
 // Flavours
 Route::get('/flavours', [FlavourController::class, 'index'])->name('flavours');
