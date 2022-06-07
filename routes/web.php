@@ -30,6 +30,14 @@ Route::get('/brands/create', [BrandController::class, 'create'])->name('brands-c
 
 Route::post('/brands', [BrandController::class, 'store']);
 
+Route::get('/brands/{brand}/edit', [BrandController::class, 'edit'])->name('brands-edit');
+
+Route::put('/brands/{brand}', [BrandController::class, 'update']);
+
+Route::delete('/brands/{brand}', [BrandController::class, 'destroy']);
+
+Route::get('/brands/{brand}', [BrandController::class, 'show'])->name('brands-show');
+
 
 // Companies
 Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
