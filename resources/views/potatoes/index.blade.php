@@ -4,7 +4,10 @@
         @if (count($potatoes) > 0)
             @foreach ($potatoes as $potato)
                 <ul>
-                    <li>{{ $potato->potato_name }} : {{ $potato->potato_country }}</li>
+                    <li>
+                        <a href="potatoes/{{ $potato->id }}">
+                            {{ $potato->potato_name }}</a> : {{ $potato->potato_country }}
+                    </li>
                 </ul>
             @endforeach
         @else
