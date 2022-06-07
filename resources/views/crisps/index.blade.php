@@ -1,3 +1,3 @@
 <x-layout>
-    <h1 class="text-3xl">Crisps</h1>
+    <h1>Crisps</h1>
 </x-layout>

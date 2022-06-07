@@ -1,5 +1,5 @@
-<nav class="flex justify-between items-center mb-4">
-    <ul class="flex space-x-6 mr-6 text-lg">
+<nav>
+    <ul>
         <li>
             <a href="{{ url('/') }}">
                 Home

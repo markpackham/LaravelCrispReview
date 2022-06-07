@@ -1,3 +1,3 @@
-<footer x-data class="text-center mt-10">
+<footer x-data class="text-center">
     <p>Copyright &copy; <span x-text="new Date().getFullYear()"></span></p>
 </footer>

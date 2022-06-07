@@ -1,5 +1,5 @@
 <x-layout>
-    <h1 class="text-3xl">Create Potato</h1>
+    <h1>Create Potato</h1>
     <form method="POST" action="{{ route('potatoes') }}">
         @csrf
         <div class="mb-6">

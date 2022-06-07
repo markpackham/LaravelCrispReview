@@ -1,3 +1,3 @@
 <x-layout>
-    <h1 class="text-3xl">Edit Crisp</h1>
+    <h1>Edit Crisp</h1>
 </x-layout>

@@ -1,5 +1,5 @@
 <x-layout>
-    <h1 class="text-3xl">Companies</h1>
+    <h1>Companies</h1>
     <div>
         @if (count($companies) > 0)
             @foreach ($companies as $company)

@@ -1,5 +1,5 @@
 <x-layout>
-    <h1 class="text-3xl">Potatoes</h1>
+    <h1>Potatoes</h1>
     <div>
         @if (count($potatoes) > 0)
             @foreach ($potatoes as $potato)
