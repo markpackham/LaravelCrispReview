@@ -27,7 +27,7 @@ class CrispController extends Controller
      */
     public function create()
     {
-        //
+        return view('crisps.create');
     }
 
     /**
@@ -49,7 +49,9 @@ class CrispController extends Controller
      */
     public function show(Crisp $crisp)
     {
-        //
+        return view('crisps.show', [
+            'crisp' => $crisp
+        ]);
     }
 
     /**
@@ -60,7 +62,7 @@ class CrispController extends Controller
      */
     public function edit(Crisp $crisp)
     {
-        //
+        return view('crisps.edit', ['crisp' => $crisp]);
     }
 
     /**
@@ -83,6 +85,7 @@ class CrispController extends Controller
      */
     public function destroy(Crisp $crisp)
     {
-        //
+        $crisp->delete();
+        return redirect()->route('crisps')->with('message', 'Crisp deleted successfully');
     }
 }

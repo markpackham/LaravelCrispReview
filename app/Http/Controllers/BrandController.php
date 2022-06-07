@@ -27,7 +27,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('brands.create');
     }
 
     /**
@@ -49,7 +49,9 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        //
+        return view('brands.show', [
+            'brand' => $brand
+        ]);
     }
 
     /**
@@ -60,7 +62,7 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        //
+        return view('brands.edit', ['brand' => $brand]);
     }
 
     /**
@@ -83,6 +85,7 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        //
+        $brand->delete();
+        return redirect()->route('brands')->with('message', 'Brand deleted successfully');
     }
 }
