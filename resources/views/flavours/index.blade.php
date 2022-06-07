@@ -4,7 +4,7 @@
         @if (count($flavours) > 0)
             @foreach ($flavours as $flavour)
                 <ul>
-                    <li>{{ $flavour->flavour_name }}</li>
+                    <li><a href="flavours/{{ $flavour->id }}">{{ $flavour->flavour_name }}</a></li>
                 </ul>
             @endforeach
         @else

@@ -2,6 +2,7 @@
     <h1>Edit Potato</h1>
     <form method="POST" action="{{ route('potatoes') }}">
         @csrf
+        @method('PUT')
         <div class="form-group">
             <label for="potato_name">Potato Name</label>
             <input class="form-control" type="text" name="potato_name" value="{{ $potato->potato_name }}" />
@@ -18,7 +19,7 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-success">
+        <button class="btn btn-success">
             Update Potato
         </button>
     </form>

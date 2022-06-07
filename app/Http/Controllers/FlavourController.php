@@ -56,7 +56,9 @@ class FlavourController extends Controller
      */
     public function show(Flavour $flavour)
     {
-        //
+        return view('flavours.show', [
+            'flavour' => $flavour
+        ]);
     }
 
     /**
@@ -67,7 +69,7 @@ class FlavourController extends Controller
      */
     public function edit(Flavour $flavour)
     {
-        //
+        return view('flavours.edit', ['flavour' => $flavour]);
     }
 
     /**
@@ -79,7 +81,11 @@ class FlavourController extends Controller
      */
     public function update(Request $request, Flavour $flavour)
     {
-        //
+        $formFields = $request->validate([
+            'flavour_name' => 'required',
+        ]);
+
+        return back()->with('message', 'Flavour updated successfully!');
     }
 
     /**
@@ -90,6 +96,7 @@ class FlavourController extends Controller
      */
     public function destroy(Flavour $flavour)
     {
-        //
+        $flavour->delete();
+        return redirect()->route('flavours')->with('message', 'Flavour deleted successfully');
     }
 }

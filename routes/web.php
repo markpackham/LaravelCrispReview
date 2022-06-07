@@ -54,19 +54,28 @@ Route::get('/flavours/create', [FlavourController::class, 'create'])->name('flav
 
 Route::post('/flavours', [FlavourController::class, 'store']);
 
+Route::get('/flavours/{flavour}/edit', [FlavourController::class, 'edit'])->name('flavours-edit');
+
+Route::put('/flavours/{flavour}', [FlavourController::class, 'update']);
+
+Route::delete('/flavours/{flavour}', [FlavourController::class, 'destroy']);
+
+Route::get('/flavours/{flavour}', [FlavourController::class, 'show'])->name('flavours-show');
+
 
 // Potatoes
-Route::delete('/potatoes/{potato}', [PotatoController::class, 'destroy']);
 
 Route::get('/potatoes', [PotatoController::class, 'index'])->name('potatoes');
 
 Route::get('/potatoes/create', [PotatoController::class, 'create'])->name('potatoes-create');
 
-Route::get('/potatoes/{potato}/edit', [PotatoController::class, 'edit'])->name('potatoes-edit');
-
 Route::post('/potatoes', [PotatoController::class, 'store']);
 
+Route::get('/potatoes/{potato}/edit', [PotatoController::class, 'edit'])->name('potatoes-edit');
+
 Route::put('/potatoes/{potato}', [PotatoController::class, 'update']);
+
+Route::delete('/potatoes/{potato}', [PotatoController::class, 'destroy']);
 
 // Always put SHOW at the end
 Route::get('/potatoes/{potato}', [PotatoController::class, 'show'])->name('potatoes-show');
