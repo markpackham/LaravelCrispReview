@@ -85,6 +85,7 @@ class FlavourController extends Controller
             'flavour_name' => 'required',
         ]);
 
+        $flavour->update($formFields);
         return back()->with('message', 'Flavour updated successfully!');
     }
 

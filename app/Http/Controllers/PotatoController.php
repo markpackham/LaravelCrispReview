@@ -86,6 +86,7 @@ class PotatoController extends Controller
             'potato_country' => 'required',
         ]);
 
+        $potato->update($formFields);
         return back()->with('message', 'Potato updated successfully!');
     }
 
