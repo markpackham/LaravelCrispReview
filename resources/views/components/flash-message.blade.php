@@ -1,7 +1,7 @@
 @if (session()->has('message'))
     <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" class="sticky-top">
-        <p class="text-danger">
+        <h4 class="text-success">
             {{ session('message') }}
-        </p>
+        </h4>
     </div>
 @endif
