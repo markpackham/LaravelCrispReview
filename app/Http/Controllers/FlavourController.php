@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Flavour;
-use App\Http\Requests\StoreFlavourRequest;
-use App\Http\Requests\UpdateFlavourRequest;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
 
 class FlavourController extends Controller
 {
@@ -33,10 +34,10 @@ class FlavourController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreFlavourRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFlavourRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -66,11 +67,11 @@ class FlavourController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateFlavourRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Flavour  $flavour
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateFlavourRequest $request, Flavour $flavour)
+    public function update(Request $request, Flavour $flavour)
     {
         //
     }

@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Potato;
-use App\Http\Requests\StorePotatoRequest;
-use App\Http\Requests\UpdatePotatoRequest;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class PotatoController extends Controller
@@ -34,10 +33,10 @@ class PotatoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePotatoRequest  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePotatoRequest $request)
+    public function store(Request $request)
     {
         $formFields = $request->validate([
             'potato_name' => ['required', Rule::unique('potato_name', 'potatoes')],
@@ -76,11 +75,11 @@ class PotatoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePotatoRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Potato  $potato
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePotatoRequest $request, Potato $potato)
+    public function update(Request $request, Potato $potato)
     {
         $formFields = $request->validate([
             'potato_name' => 'required',

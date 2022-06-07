@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Crisp;
-use App\Http\Requests\StoreCrispRequest;
-use App\Http\Requests\UpdateCrispRequest;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class CrispController extends Controller
 {
@@ -33,10 +33,10 @@ class CrispController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreCrispRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCrispRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -66,11 +66,11 @@ class CrispController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateCrispRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Crisp  $crisp
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCrispRequest $request, Crisp $crisp)
+    public function update(Request $request, Crisp $crisp)
     {
         //
     }

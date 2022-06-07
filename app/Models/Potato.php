@@ -9,8 +9,8 @@ class Potato extends Model
 {
     use HasFactory;
 
-    // protected $fillable = [
-    //     'potato_name',
-    //     'potato_country',
-    // ];
+    protected $fillable = [
+        'potato_name',
+        'potato_country',
+    ];
 }
