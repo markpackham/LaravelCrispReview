@@ -1,7 +1,7 @@
-<nav>
-    <ul>
+<nav class="navbar navbar-expand-lg">
+    <ul class="navbar-nav mr-auto">
         <li>
-            <a href="{{ url('/') }}">
+            <a href=" {{ url('/') }}">
                 Home
             </a>
         </li>

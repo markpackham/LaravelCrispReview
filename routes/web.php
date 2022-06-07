@@ -61,3 +61,6 @@ Route::get('/potatoes', [PotatoController::class, 'index'])->name('potatoes');
 Route::get('/potatoes/create', [PotatoController::class, 'create'])->name('potatoes-create');
 
 Route::post('/potatoes', [PotatoController::class, 'store']);
+
+// Always put SHOW at the end
+Route::get('/potatoes/{potato}', [PotatoController::class, 'show'])->name('potatoes-show');

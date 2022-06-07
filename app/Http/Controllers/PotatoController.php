@@ -39,8 +39,8 @@ class PotatoController extends Controller
     public function store(Request $request)
     {
         $formFields = $request->validate([
-            'potato_name' => ['required', Rule::unique('potato_name', 'potatoes')],
-            'potato_country' => 'required',
+            'potato_name' => ['required', Rule::unique('potatoes', 'potato_name')],
+            'potato_country' => 'required'
         ]);
 
         Potato::create($formFields);

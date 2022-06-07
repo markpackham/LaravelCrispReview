@@ -6,19 +6,19 @@
             <label for="potato_name">Potato Name</label>
             <input class="form-control" type="text" name="potato_name" value="{{ old('potato_name') }}" />
             @error('potato_name')
-                <p>{{ $message }}</p>
+                <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
 
         <div class="form-group">
-            <label for="country_name">Country Name</label>
-            <input class="form-control" type="text" name="country_name" value="{{ old('country_name') }}" />
-            @error('country_name')
-                <p>{{ $message }}</p>
+            <label for="potato_country">Country Name</label>
+            <input class="form-control" type="text" name="potato_country" value=" {{ old('potato_country') }}" />
+            @error('potato_country')
+                <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
 
-        <button type="button" class="btn btn-success">
+        <button type="submit" class="btn btn-success">
             Create Potato
         </button>
     </form>
