@@ -18,4 +18,12 @@ class Brand extends Model
     {
         return $this->belongsTo(Company::class, 'company_id');
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+
+        if ($filters['searchBrand'] ?? false) {
+            $query->where('brand_name', 'like', '%' . request('searchBrand') . '%');
+        }
+    }
 }

@@ -28,4 +28,12 @@ class Crisp extends Model
     {
         return $this->belongsTo(Flavour::class, 'flavour_id');
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+
+        if ($filters['searchCrisp'] ?? false) {
+            $query->where('crisp_name', 'like', '%' . request('searchCrisp') . '%');
+        }
+    }
 }

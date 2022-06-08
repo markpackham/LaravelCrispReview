@@ -16,7 +16,7 @@ class BrandController extends Controller
     public function index()
     {
         return view('brands.index', [
-            'brands' => Brand::latest()->paginate(20)
+            'brands' => Brand::latest()->filter(request(['searchBrand']))->paginate(10)
         ]);
     }
 

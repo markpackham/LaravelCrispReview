@@ -15,4 +15,12 @@ class Company extends Model
         'company_phone',
         'company_website',
     ];
+
+    public function scopeFilter($query, array $filters)
+    {
+
+        if ($filters['searchCompany'] ?? false) {
+            $query->where('company_name', 'like', '%' . request('searchCompany') . '%');
+        }
+    }
 }
