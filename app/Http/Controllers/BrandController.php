@@ -38,7 +38,13 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'brand_name' => ['required', Rule::unique('brands', 'brand_name')],
+        ]);
+
+        Brand::create($formFields);
+
+        return redirect()->route('brands')->with('message', 'Brand created successfully!');
     }
 
     /**
@@ -74,7 +80,12 @@ class BrandController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
-        //
+        $formFields = $request->validate([
+            'brand_name' => 'required', 'unique:brands,brand_name',
+        ]);
+
+        $brand->update($formFields);
+        return redirect()->route('brands')->with('message', 'Brand updated successfully!');
     }
 
     /**

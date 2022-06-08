@@ -38,7 +38,20 @@ class CrispController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'crips_name' => 'required', 'unique:flavours,flavour_name',
+            'crisp_weight' => ['required', 'numeric|min:1'],
+            'crisp_review',
+            'crisp_score' =>  'numeric|min:1|max:5',
+        ]);
+
+        if ($request->hasFile('crisp_image')) {
+            $formFields['crisp_image'] = $request->file('crisp_image')->store('crisp_image', 'public');
+        }
+
+        Crisp::create($formFields);
+
+        return redirect()->route('crisps')->with('message', 'Crisp created successfully!');
     }
 
     /**
@@ -74,7 +87,19 @@ class CrispController extends Controller
      */
     public function update(Request $request, Crisp $crisp)
     {
-        //
+        $formFields = $request->validate([
+            'crisp_name' => 'required',
+            'crisp_weight' => 'required',
+            'crisp_review' => 'required',
+            'crisp_score' => 'required',
+        ]);
+
+        if ($request->hasFile('crisp_image')) {
+            $formFields['crisp_image'] = $request->file('crisp_image')->store('crisp_image', 'public');
+        }
+
+        $crisp->update($formFields);
+        return redirect()->route('crisps')->with('message', 'Crisp updated successfully!');
     }
 
     /**
