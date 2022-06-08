@@ -1,4 +1,4 @@
-<form action="/">
+<form action="/flavours">
     <div class="relative border-2 border-gray-100 m-4 rounded-lg">
         <input type="text" name="searchFlavour" placeholder="Search Flavour names" /> <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>
         <div class="absolute top-2 right-2">

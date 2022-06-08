@@ -12,4 +12,12 @@ class Flavour extends Model
     protected $fillable = [
         'flavour_name',
     ];
+
+    public function scopeFilter($query, array $filters)
+    {
+
+        if ($filters['searchFlavour'] ?? false) {
+            $query->where('flavour_name', 'like', '%' . request('searchFlavour') . '%');
+        }
+    }
 }
