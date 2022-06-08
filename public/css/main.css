@@ -18,6 +18,10 @@ img {
     max-width: 100%;
 }
 
+label {
+    font-weight: bold;
+}
+
 li {
     margin-right: 0.75rem;
 }

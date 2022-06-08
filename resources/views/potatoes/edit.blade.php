@@ -19,7 +19,7 @@
             @enderror
         </div>
 
-        <button class="btn btn-success">
+        <button class="btn btn-success mt-2">
             Update Potato
         </button>
     </form>

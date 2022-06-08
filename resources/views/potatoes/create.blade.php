@@ -18,7 +18,7 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-success">
+        <button type="submit" class="btn btn-success mt-2">
             Create Potato
         </button>
     </form>
