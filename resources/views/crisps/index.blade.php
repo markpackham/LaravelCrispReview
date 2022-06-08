@@ -1,5 +1,6 @@
 <x-layout>
     <h1>Crisps</h1>
+    @include('partials._crisp_search')
     <div>
         @if (count($crisps) > 0)
             @foreach ($crisps as $crisp)
@@ -18,5 +19,9 @@
         @else
             <p>No crisps</p>
         @endif
+    </div>
+
+    <div class="mt-6 p-4">
+        {{ $crips->links() }}
     </div>
 </x-layout>
