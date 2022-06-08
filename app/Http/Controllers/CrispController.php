@@ -90,8 +90,8 @@ class CrispController extends Controller
         $formFields = $request->validate([
             'crisp_name' => 'required',
             'crisp_weight' => 'required',
-            'crisp_review' => 'required',
-            'crisp_score' => 'required',
+            'crisp_review',
+            'crisp_score' => 'numeric|min:1|max:5',
         ]);
 
         if ($request->hasFile('crisp_image')) {

@@ -28,7 +28,8 @@
 
         <div class="form-group">
             <label for="crisp_score">Crisp Review Score</label>
-            <input class="form-control" type="number" name="crisp_score" value="{{ old('crisp_score') }}" />
+            <input class="form-control" min="1" max="5" type="number" name="crisp_score"
+                value="{{ old('crisp_score') }}" />
             @error('crisp_score')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
