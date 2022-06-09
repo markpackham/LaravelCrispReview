@@ -28,10 +28,10 @@
         </div>
 
         <div class="form-group">
-            <label for="crisp_score">Crisp Score out of 5</label>
-            <input class="form-control" min="1" max="5" type="number" name="crisp_score"
+            <label for="crisp_review_score">Crisp Score out of 5</label>
+            <input class="form-control" min="1" max="5" type="number" name="crisp_review_score"
                 value="{{ $crisp->crisp_review_score }}" />
-            @error('crisp_score')
+            @error('crisp_review_score')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -43,7 +43,7 @@
                 src="{{ $crisp->crisp_image ? asset('storage/' . $crisp->crisp_image) : asset('/images/no-image.png') }}"
                 alt="{{ $crisp->crisp_name }} />
             @error('crisp_image')
-    <p class="        text-danger">{{ $message }}</p>
+    <p class="          text-danger">{{ $message }}</p>
             @enderror
         </div>
 

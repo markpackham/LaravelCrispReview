@@ -27,15 +27,15 @@
         </div>
 
         <div class="form-group">
-            <label for="crisp_score">Crisp Review Score out of 5</label>
-            <select class="form-control" name="crisp_score">
+            <label for="crisp_review_score">Crisp Review Score out of 5</label>
+            <select class="form-control" name="crisp_review_score">
                 <option value="1">1</option>
                 <option value="1">2</option>
                 <option value="1">3</option>
                 <option value="1">4</option>
                 <option value="1">5</option>
             </select>
-            @error('crisp_score')
+            @error('crisp_review_score')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
