@@ -13,6 +13,10 @@
             Edit <i class="fa-solid fa-pencil"></i>
         </a>
 
+        <a class="btn btn-secondary" href="{{ route('crisps') }}">
+            Back <i class="fa-solid fa-arrow-left"></i>
+        </a>
+
         <form method="POST" action="/crisps/{{ $crisp->id }}">
             @csrf
             @method('DELETE')

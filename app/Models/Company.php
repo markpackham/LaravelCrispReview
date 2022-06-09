@@ -21,7 +21,7 @@ class Company extends Model
     // Relationship to Company, a company belongs to many brands
     public function brands()
     {
-        return $this->hasMany(Brand::class, 'brand_id', 'id');
+        return $this->hasMany(Brand::class, 'id');
     }
 
     public function scopeFilter($query, array $filters)

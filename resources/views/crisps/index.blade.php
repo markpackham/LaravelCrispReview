@@ -22,6 +22,6 @@
     </div>
 
     <div class="mt-6 p-4">
-        {{ $crips->links() }}
+        {{ $crisps->links() }}
     </div>
 </x-layout>
