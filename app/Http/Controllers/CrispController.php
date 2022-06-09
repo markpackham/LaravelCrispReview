@@ -22,6 +22,8 @@ class CrispController extends Controller
         $brands = Brand::with('crisps')->get();
         $flavours = Flavour::with('crisps')->get();
 
+        // to view images publically create symbolic link in storage 
+        // php artisan storage:link
         return view('crisps.index', compact('brands', 'crisps', 'flavours'));
     }
 

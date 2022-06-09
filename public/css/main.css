@@ -48,6 +48,11 @@ nav>div.hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between>div:nth-
 }
 
 /* Classes */
+
+.img-thumbnail {
+    max-width: 250px;
+}
+
 .navbar {
     background-color: hsl(60, 80%, 47%);
     border-radius: 5px;

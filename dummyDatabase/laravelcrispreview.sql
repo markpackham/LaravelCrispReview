@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2022 at 02:53 PM
+-- Generation Time: Jun 09, 2022 at 06:07 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -102,16 +102,16 @@ CREATE TABLE `crisps` (
 --
 
 INSERT INTO `crisps` (`id`, `crisp_name`, `crisp_image`, `crisp_weight`, `crisp_review_score`, `crisp_review`, `brand_id`, `flavour_id`, `created_at`, `updated_at`) VALUES
-(1, 'Walkers Monster Munch Mega Pickled Onion Snack', NULL, 40, 4, 'Amazing strong if polarizing taste, lots of pickle but little onion flavour', 2, 2, NULL, NULL),
-(2, 'Walkers Ready Salted Crisps', NULL, 25, 2, 'The most average vanilla of crisps', 5, 4, NULL, NULL),
-(3, 'Transform-A-Snack Saucy BBQ', NULL, 30, 4, 'Surprisingly good and cheap', 6, 12, NULL, NULL),
-(4, 'Smith\'s Chipsticks Salt & Vinegar 8 Pack', NULL, 136, 4, 'You will love this if you love a very strong vinegar flavour, really packs a punch', 7, 3, NULL, NULL),
-(5, 'Walkers Cheese & Onion Crisps 6X25g', NULL, 150, 3, 'Cheese and onion is one area the typically bland Walkers brand actually excels at. No wonder it\'s very popular.', 5, 5, NULL, NULL),
-(6, 'Golden Wonder Ready Salted 6X25g', NULL, 150, 3, 'More flavour and a sharper crisp quality than bland old Walkers', 6, 4, NULL, NULL),
-(7, 'Kp Skips Prawn Cocktail Crisps 6 X 13.1G', NULL, 79, 4, 'Best prawn and cocktail crisp flavour ever and novel fizzling crisp design, they lose 1 point for the lack of volume.', 4, 7, NULL, NULL),
-(8, 'Flamegrilled Aberdeen Angus', NULL, 40, 4, 'Great unique taste, good value for money', 8, 14, NULL, NULL),
-(9, 'Johnny\'s Spicy Onion Rings', NULL, 25, 5, 'Perfect strong flavour and very cheap, best crisps so far', 1, 1, NULL, NULL),
-(10, 'Lorne Sausage & Brown Sauce Crisps', NULL, 150, 3, 'Ok but unique flavour, bonus points for originality', 8, 28, NULL, NULL);
+(1, 'Walkers Monster Munch Mega Pickled Onion Snack', 'crisp_image/MrFxQ4APXC8ENsHTwUA6Set5mCYTv0TBxDE2LTZc.jpg', 40, 4, 'Amazing strong if polarizing taste, lots of pickle but little onion flavour', 2, 2, NULL, '2022-06-09 14:52:20'),
+(2, 'Walkers Ready Salted Crisps', 'crisp_image/ooJ2P3zbDznXDoMydMEvZXJgaLKdUAPZ0pTZ2vkG.jpg', 25, 2, 'The most average vanilla of crisps', 5, 4, NULL, '2022-06-09 15:03:11'),
+(3, 'Transform-A-Snack Saucy BBQ', 'crisp_image/QJAMklnLHfzyxe0Zrqr4UXlx3CL3r4hkAAYMsCIZ.png', 30, 4, 'Surprisingly good and cheap', 6, 12, NULL, '2022-06-09 15:03:45'),
+(4, 'Smith\'s Chipsticks Salt & Vinegar 8 Pack', 'crisp_image/QI3rmXPmE003uJ7LZeYnY6ZdF9rWPYkekZiGSCA1.jpg', 136, 4, 'You will love this if you love a very strong vinegar flavour, really packs a punch', 7, 3, NULL, '2022-06-09 15:04:15'),
+(5, 'Walkers Cheese & Onion Crisps 6X25g', 'crisp_image/jfy1aY4FUq1lcGPYJkhmoKnbYTCGLGri1CpckKjH.jpg', 150, 3, 'Cheese and onion is one area the typically bland Walkers brand actually excels at. No wonder it\'s very popular.', 5, 5, NULL, '2022-06-09 15:04:39'),
+(6, 'Golden Wonder Ready Salted 6X25g', 'crisp_image/z3YVpFbh5xqwhLT2lJFXtEKvkDL5ABDNtqJWVnxq.jpg', 150, 3, 'More flavour and a sharper crisp quality than bland old Walkers', 6, 4, NULL, '2022-06-09 15:05:17'),
+(7, 'Kp Skips Prawn Cocktail Crisps 6 X 13.1G', 'crisp_image/5YCtwZCPuRom1Jjx8csIlS9L9atJiRHHICPbQeSL.jpg', 79, 4, 'Best prawn and cocktail crisp flavour ever and novel fizzling crisp design, they lose 1 point for the lack of volume.', 4, 7, NULL, '2022-06-09 15:05:45'),
+(8, 'Flamegrilled Aberdeen Angus', 'crisp_image/yv6LaF8kyOjzUteibL2ZPs93LhUdikohbgUqIK43.png', 40, 4, 'Great unique taste, good value for money', 8, 14, NULL, '2022-06-09 15:06:10'),
+(9, 'Johnny\'s Spicy Onion Rings', 'crisp_image/w8sS9E3LrCWq2hlbE4MRLSL8U93PknXMvofCjNb9.jpg', 25, 5, 'Perfect strong flavour and very cheap, best crisps so far', 1, 1, NULL, '2022-06-09 15:06:56'),
+(10, 'Lorne Sausage & Brown Sauce Crisps', 'crisp_image/GW4ytVARab5yW5mZh7mhOWQkmVeCkD9wox8g3dVB.webp', 150, 3, 'Ok but unique flavour, bonus points for originality', 8, 28, NULL, '2022-06-09 15:07:27');
 
 -- --------------------------------------------------------
 
@@ -359,7 +359,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `companies`
@@ -371,7 +371,7 @@ ALTER TABLE `companies`
 -- AUTO_INCREMENT for table `crisps`
 --
 ALTER TABLE `crisps`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
