@@ -3,7 +3,7 @@
         <h1>{{ $crisp->crisp_name }}</h1>
         <p>Weight: {{ $crisp->crisp_weight }}g</p>
         <p>{{ $crisp->crisp_review }}</p>
-        <p>Review Score: {{ $crisp_crisp_score }}/5</p>
+        <p>Review Score: {{ $crisp->crisp_review_score }}/5</p>
         <p>Brand: {{ $crisp->brand->brand_name }}</p>
         <p>Flavour: {{ $crisp->flavour->flavour_name }}</p>
 
@@ -11,7 +11,7 @@
             src="{{ $crisp->crisp_image ? asset('storage/' . $crisp->crisp_image) : asset('/images/no-image.png') }}"
             alt="{{ $crisp->crisp_name }} crisp_image" />
 
-        <a class="btn btn-secondary mt-2" href="/crisps/{{ $crisp->id }}/edit">
+        <a class="btn btn-secondary" href="/crisps/{{ $crisp->id }}/edit">
             Edit <i class="fa-solid fa-pencil"></i>
         </a>
 

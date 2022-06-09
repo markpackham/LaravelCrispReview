@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2022 at 11:36 AM
+-- Generation Time: Jun 09, 2022 at 02:53 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -97,6 +97,22 @@ CREATE TABLE `crisps` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `crisps`
+--
+
+INSERT INTO `crisps` (`id`, `crisp_name`, `crisp_image`, `crisp_weight`, `crisp_review_score`, `crisp_review`, `brand_id`, `flavour_id`, `created_at`, `updated_at`) VALUES
+(1, 'Walkers Monster Munch Mega Pickled Onion Snack', NULL, 40, 4, 'Amazing strong if polarizing taste, lots of pickle but little onion flavour', 2, 2, NULL, NULL),
+(2, 'Walkers Ready Salted Crisps', NULL, 25, 2, 'The most average vanilla of crisps', 5, 4, NULL, NULL),
+(3, 'Transform-A-Snack Saucy BBQ', NULL, 30, 4, 'Surprisingly good and cheap', 6, 12, NULL, NULL),
+(4, 'Smith\'s Chipsticks Salt & Vinegar 8 Pack', NULL, 136, 4, 'You will love this if you love a very strong vinegar flavour, really packs a punch', 7, 3, NULL, NULL),
+(5, 'Walkers Cheese & Onion Crisps 6X25g', NULL, 150, 3, 'Cheese and onion is one area the typically bland Walkers brand actually excels at. No wonder it\'s very popular.', 5, 5, NULL, NULL),
+(6, 'Golden Wonder Ready Salted 6X25g', NULL, 150, 3, 'More flavour and a sharper crisp quality than bland old Walkers', 6, 4, NULL, NULL),
+(7, 'Kp Skips Prawn Cocktail Crisps 6 X 13.1G', NULL, 79, 4, 'Best prawn and cocktail crisp flavour ever and novel fizzling crisp design, they lose 1 point for the lack of volume.', 4, 7, NULL, NULL),
+(8, 'Flamegrilled Aberdeen Angus', NULL, 40, 4, 'Great unique taste, good value for money', 8, 14, NULL, NULL),
+(9, 'Johnny\'s Spicy Onion Rings', NULL, 25, 5, 'Perfect strong flavour and very cheap, best crisps so far', 1, 1, NULL, NULL),
+(10, 'Lorne Sausage & Brown Sauce Crisps', NULL, 150, 3, 'Ok but unique flavour, bonus points for originality', 8, 28, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -150,7 +166,8 @@ INSERT INTO `flavours` (`id`, `flavour_name`, `created_at`, `updated_at`) VALUES
 (17, 'Beef and Onion', NULL, NULL),
 (18, 'Cheese', NULL, NULL),
 (19, 'Tomato', NULL, NULL),
-(20, 'Caramelized Red Onion', NULL, NULL);
+(20, 'Caramelized Red Onion', NULL, NULL),
+(28, 'Sausage', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -354,7 +371,7 @@ ALTER TABLE `companies`
 -- AUTO_INCREMENT for table `crisps`
 --
 ALTER TABLE `crisps`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -366,7 +383,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `flavours`
 --
 ALTER TABLE `flavours`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `migrations`

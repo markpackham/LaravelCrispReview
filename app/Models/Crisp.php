@@ -16,7 +16,7 @@ class Crisp extends Model
         'crisp_image',
         'crisp_weight',
         'crisp_review',
-        'crisp_score',
+        'crisp_review_score',
         'brand_id',
         'flavour_id',
     ];
