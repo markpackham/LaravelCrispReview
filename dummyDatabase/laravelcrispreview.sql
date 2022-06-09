@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2022 at 05:46 PM
+-- Generation Time: Jun 09, 2022 at 11:36 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -77,6 +77,25 @@ INSERT INTO `companies` (`id`, `company_name`, `company_address`, `company_phone
 (5, 'Tayto Group Limited', 'Princewood Road, Earlstrees Industrial Estate, Corby, Northamptonshire NN17 4AP, The Urban Building, 3-9 Albert Street, Slough, SL1 2BE', '0800 917 4494', 'https://www.taytogroup.com/', NULL, NULL),
 (6, 'PepsiCo Australia Holdings Pty Ltd', 'L 4 799 Pacific Hwy Chatswood, New South Wales, 2067 Australia', '61-1800025789', 'https://smiths.com.au/', NULL, NULL),
 (7, 'Mackie’s Crisps', 'Mackie’s at Taypack, Inchcoonans, Errol, Perthshire PH2 7RB', '01821 641250', 'https://www.mackiescrisps.co.uk/', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `crisps`
+--
+
+CREATE TABLE `crisps` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `crisp_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `crisp_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `crisp_weight` int(11) NOT NULL,
+  `crisp_review_score` int(11) DEFAULT NULL,
+  `crisp_review` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `brand_id` bigint(20) UNSIGNED NOT NULL,
+  `flavour_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -157,7 +176,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2022_06_03_093023_create_companies_table', 1),
 (6, '2022_06_03_093051_create_brands_table', 1),
 (7, '2022_06_03_093131_create_potatoes_table', 1),
-(8, '2022_06_03_130740_create_flavours_table', 1);
+(8, '2022_06_03_130740_create_flavours_table', 1),
+(9, '2022_06_04_093121_create_crisps_table', 2);
 
 -- --------------------------------------------------------
 
@@ -258,6 +278,15 @@ ALTER TABLE `companies`
   ADD UNIQUE KEY `companies_company_name_unique` (`company_name`);
 
 --
+-- Indexes for table `crisps`
+--
+ALTER TABLE `crisps`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `crisps_crisp_name_unique` (`crisp_name`),
+  ADD KEY `crisps_brand_id_foreign` (`brand_id`),
+  ADD KEY `crisps_flavour_id_foreign` (`flavour_id`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -319,7 +348,13 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `crisps`
+--
+ALTER TABLE `crisps`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -331,13 +366,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `flavours`
 --
 ALTER TABLE `flavours`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -349,13 +384,24 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `potatoes`
 --
 ALTER TABLE `potatoes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `crisps`
+--
+ALTER TABLE `crisps`
+  ADD CONSTRAINT `crisps_brand_id_foreign` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `crisps_flavour_id_foreign` FOREIGN KEY (`flavour_id`) REFERENCES `flavours` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

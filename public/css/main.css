@@ -47,7 +47,12 @@ nav>div.hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between>div:nth-
 .navbar {
     background-color: hsl(60, 80%, 47%);
     border-radius: 5px;
+    justify-content: space-around;
     padding: 0.5rem;
+}
+
+.navbar a:hover {
+    font-weight: bold;
 }
 
 .potatoSearch {

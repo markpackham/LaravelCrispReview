@@ -17,8 +17,8 @@ class CreateCrispsTable extends Migration
             $table->id();
             $table->string('crisp_name')->unique();
             $table->string('crisp_image')->nullable();
-            $table->int('crisp_weight');
-            $table->int('crisp_review_score')->nullable();
+            $table->integer('crisp_weight');
+            $table->integer('crisp_review_score')->nullable();
             $table->longText('crisp_review')->nullable();
             $table->foreignId('brand_id')->constrained()->onDelete('cascade');
             $table->foreignId('flavour_id')->constrained()->onDelete('cascade');
