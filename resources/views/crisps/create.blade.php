@@ -27,9 +27,14 @@
         </div>
 
         <div class="form-group">
-            <label for="crisp_score">Crisp Review Score</label>
-            <input class="form-control" min="1" max="5" type="number" name="crisp_score"
-                value="{{ old('crisp_score') }}" />
+            <label for="crisp_score">Crisp Review Score out of 5</label>
+            <select class="form-control" name="crisp_score">
+                <option value="1">1</option>
+                <option value="1">2</option>
+                <option value="1">3</option>
+                <option value="1">4</option>
+                <option value="1">5</option>
+            </select>
             @error('crisp_score')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -44,17 +49,25 @@
         </div>
 
         <div class="form-group">
-            <label for="brand_name">Brand Name</label>
-            <input class="form-control" type="text" name="brand_name" value="{{ old('brand_name') }}" />
-            @error('brand_name')
+            <label for="brand_id">Brand Name</label>
+            <select class="form-control" name="brand_id">
+                @foreach ($brands as $brand)
+                    <option value="{{ $brand->id }}">{{ $brand->brand_name }}</option>
+                @endforeach
+            </select>
+            @error('brand_id')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
 
         <div class="form-group">
-            <label for="flavour_name">Flavour Name</label>
-            <input class="form-control" type="text" name="flavour_name" value="{{ old('flavour_name') }}" />
-            @error('flavour_name')
+            <label for="flavour_id">Flavour Name</label>
+            <select class="form-control" name="flavour_id">
+                @foreach ($flavours as $flavour)
+                    <option value="{{ $flavour->id }}">{{ $flavour->flavour_name }}</option>
+                @endforeach
+            </select>
+            @error('flavour_id')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
