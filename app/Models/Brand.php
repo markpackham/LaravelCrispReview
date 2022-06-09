@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,12 +12,13 @@ class Brand extends Model
 
     protected $fillable = [
         'brand_name',
+        'company_id'
     ];
 
-    // Relationship to Company
+    // Relationship to Company, a brand may only have 1 company
     public function company()
     {
-        return $this->belongsTo(Company::class, 'company_id');
+        return $this->belongsTo(Company::class);
     }
 
     public function scopeFilter($query, array $filters)
