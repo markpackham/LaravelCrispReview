@@ -48,6 +48,8 @@ class CrispController extends Controller
             'crisp_weight' => ['required', 'numeric|min:1'],
             'crisp_review',
             'crisp_score' =>  'numeric|min:1|max:5',
+            'brand_name',
+            'flavour_name',
         ]);
 
         if ($request->hasFile('crisp_image')) {

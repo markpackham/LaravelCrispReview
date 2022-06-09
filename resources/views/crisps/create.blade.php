@@ -43,6 +43,22 @@
             @enderror
         </div>
 
+        <div class="form-group">
+            <label for="brand_name">Brand Name</label>
+            <input class="form-control" type="text" name="brand_name" value="{{ old('brand_name') }}" />
+            @error('brand_name')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="flavour_name">Flavour Name</label>
+            <input class="form-control" type="text" name="flavour_name" value="{{ old('flavour_name') }}" />
+            @error('flavour_name')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+
         <button type="submit" class="btn btn-success mt-2">
             Create Crisp
         </button>
