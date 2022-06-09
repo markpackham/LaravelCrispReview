@@ -72,7 +72,8 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        return view('brands.edit', ['brand' => $brand]);
+        $companies = Company::with('brands')->get();
+        return view('brands.edit', ['brand' => $brand, 'companies' => $companies]);
     }
 
     /**
@@ -85,7 +86,8 @@ class BrandController extends Controller
     public function update(Request $request, Brand $brand)
     {
         $formFields = $request->validate([
-            'brand_name' => 'required', 'unique:brands,brand_name',
+            'brand_name' => 'required',
+            'company_id' => 'required'
         ]);
 
         $brand->update($formFields);

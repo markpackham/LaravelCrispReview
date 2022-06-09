@@ -11,6 +11,19 @@
             @enderror
         </div>
 
+        <div class="form-group">
+            <label for="company_id">Company Name</label>
+            <select class="form-control" name="company_id">
+                <option selected value="{{ $brand->company->id }}">{{ $brand->company->company_name }}</option>
+                @foreach ($companies as $company)
+                    <option value="{{ $company->id }}">{{ $company->company_name }}</option>
+                @endforeach
+            </select>
+            @error('company_id')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+
         <button class="btn btn-success mt-2">
             Update Brand
         </button>
