@@ -29,7 +29,8 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('brands.create');
+        $companies = Company::with('brands')->get();
+        return view('brands.create', ['companies' => $companies]);
     }
 
     /**
@@ -42,6 +43,7 @@ class BrandController extends Controller
     {
         $formFields = $request->validate([
             'brand_name' => ['required', Rule::unique('brands', 'brand_name')],
+            'company_id' => 'required'
         ]);
 
         Brand::create($formFields);
