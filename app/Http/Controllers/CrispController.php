@@ -46,10 +46,10 @@ class CrispController extends Controller
     public function store(Request $request)
     {
         $formFields = $request->validate([
-            'crips_name' => 'required', 'unique:flavours,flavour_name',
+            'crips_name' => ['required', Rule::unique('crisps', 'crisp_name')],
             'crisp_weight' => 'required',
             'crisp_review',
-            'crisp_score',
+            'crisp_review_score',
             'brand_id',
             'flavour_id',
         ]);
@@ -84,7 +84,9 @@ class CrispController extends Controller
      */
     public function edit(Crisp $crisp)
     {
-        return view('crisps.edit', ['crisp' => $crisp]);
+        $brands = Brand::with('crisps')->get();
+        $flavours = Flavour::with('crisps')->get();
+        return view('crisps.edit', ['crisp' => $crisp, 'brands' => $brands, 'flavours' => $flavours]);
     }
 
     /**
@@ -100,7 +102,9 @@ class CrispController extends Controller
             'crisp_name' => 'required',
             'crisp_weight' => 'required',
             'crisp_review',
-            'crisp_score' => 'numeric|min:1|max:5',
+            'crisp_review_score',
+            'brand_id',
+            'flavour_id',
         ]);
 
         if ($request->hasFile('crisp_image')) {

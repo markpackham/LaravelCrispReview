@@ -12,7 +12,7 @@
 
         <div class="form-group">
             <label for="crisp_weight">Crisp Weight in grams</label>
-            <input class="form-control" type="number" name="crisp_weight" value="{{ old('crisp_weight') }}" />
+            <input class="form-control" min=1 type="number" name="crisp_weight" value="{{ old('crisp_weight') }}" />
             @error('crisp_weight')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
