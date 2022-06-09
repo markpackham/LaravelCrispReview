@@ -40,7 +40,7 @@ class FlavourController extends Controller
     public function store(Request $request)
     {
         $formFields = $request->validate([
-            'flavour_name' => 'required', 'unique:flavours,flavour_name',
+            'flavour_name' => 'required|unique:flavours,flavour_name',
         ]);
 
         Flavour::create($formFields);

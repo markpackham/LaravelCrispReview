@@ -1,6 +1,6 @@
 <x-layout>
     <h1>Edit Crisp</h1>
-    <form method="POST" action="/brands/{{ $crisp->id }}" enctype="multipart/form-data">
+    <form method="POST" action="/crisps/{{ $crisp->id }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -43,7 +43,7 @@
                 src="{{ $crisp->crisp_image ? asset('storage/' . $crisp->crisp_image) : asset('/images/no-image.png') }}"
                 alt="{{ $crisp->crisp_name }} />
             @error('crisp_image')
-    <p class="          text-danger">{{ $message }}</p>
+    <p class="           text-danger">{{ $message }}</p>
             @enderror
         </div>
 
