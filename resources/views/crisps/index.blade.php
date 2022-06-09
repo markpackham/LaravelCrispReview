@@ -13,6 +13,8 @@
                         <img class="img-thumbnail mt-2"
                             src="{{ $crisp->crisp_image ? asset('storage/' . $crisp->crisp_image) : asset('/images/no-image.png') }}"
                             alt="{{ $crisp->crisp_name }} crisp_image" />
+                        <li>Brand: {{ $crisp->brand->brand_name }}</li>
+                        <li>Flavour: {{ $crisp->flavour->flavour_name }}</li>
                     </div>
                 </ul>
             @endforeach

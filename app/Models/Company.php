@@ -18,7 +18,7 @@ class Company extends Model
         'company_website',
     ];
 
-    // Relationship to Company, a company belongs to many brands
+    // Relationship to Company, a Company belongs to many Brands
     public function brands()
     {
         return $this->hasMany(Brand::class, 'id');

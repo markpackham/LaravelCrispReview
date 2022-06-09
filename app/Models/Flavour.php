@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Crisp;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Flavour extends Model
 {
@@ -12,6 +13,11 @@ class Flavour extends Model
     protected $fillable = [
         'flavour_name',
     ];
+
+    public function crisps()
+    {
+        return $this->hasMany(Crisp::class, 'id');
+    }
 
     public function scopeFilter($query, array $filters)
     {

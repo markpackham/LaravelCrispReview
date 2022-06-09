@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Crisp;
+use App\Models\Flavour;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -15,9 +17,12 @@ class CrispController extends Controller
      */
     public function index()
     {
-        return view('crisps.index', [
-            'crisps' => Crisp::latest()->filter(request(['searchCrisp']))->paginate(10)
-        ]);
+
+        $crisps = Crisp::latest()->filter(request(['searchCrisp']))->paginate(10);
+        $brands = Brand::with('crisps')->get();
+        $flavours = Flavour::with('crisps')->get();
+
+        return view('crisps.index', compact('brands', 'crisps', 'flavours'));
     }
 
     /**

@@ -4,6 +4,8 @@
         <p>Weight: {{ $crisp->crisp_weight }}g</p>
         <p>{{ $crisp->crisp_review }}</p>
         <p>Review Score: {{ $crisp_crisp_score }}/5</p>
+        <p>Brand: {{ $crisp->brand->brand_name }}</p>
+        <p>Flavour: {{ $crisp->flavour->flavour_name }}</p>
 
         <img class="mt-2"
             src="{{ $crisp->crisp_image ? asset('storage/' . $crisp->crisp_image) : asset('/images/no-image.png') }}"

@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Brand;
+use App\Models\Flavour;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Crisp extends Model
 {
@@ -15,18 +17,20 @@ class Crisp extends Model
         'crisp_weight',
         'crisp_review',
         'crisp_score',
+        'brand_id',
+        'flavour_id',
     ];
 
     // Relationship to Brand
     public function brand()
     {
-        return $this->belongsTo(Brand::class, 'brand_id');
+        return $this->belongsTo(Brand::class);
     }
 
     // Relationship to Flavour
     public function flavour()
     {
-        return $this->belongsTo(Flavour::class, 'flavour_id');
+        return $this->belongsTo(Flavour::class);
     }
 
     public function scopeFilter($query, array $filters)
