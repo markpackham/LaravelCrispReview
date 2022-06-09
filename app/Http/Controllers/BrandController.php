@@ -19,10 +19,6 @@ class BrandController extends Controller
         $brands = Brand::latest()->filter(request(['searchBrand']))->paginate(10);
         $companies = Company::with('brands')->get();
 
-        // return view('brands.index', [
-        //     'brands' => Brand::latest()->filter(request(['searchBrand']))->paginate(10)
-        // ]);
-
         return view('brands.index', compact('brands', 'companies'));
     }
 
