@@ -6,6 +6,8 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CrispController;
 use App\Http\Controllers\FlavourController;
 use App\Http\Controllers\PotatoController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -103,3 +105,6 @@ Route::delete('/potatoes/{potato}', [PotatoController::class, 'destroy']);
 
 // Always put SHOW at the end
 Route::get('/potatoes/{potato}', [PotatoController::class, 'show'])->name('potatoes-show');
+
+// Users
+Route::get('/register', [UserController::class, 'create'])->name('users-create');
