@@ -108,3 +108,7 @@ Route::get('/potatoes/{potato}', [PotatoController::class, 'show'])->name('potat
 
 // Users
 Route::get('/register', [UserController::class, 'create'])->name('users-create');
+
+Route::post('/users', [UserController::class, 'store']);
+
+Route::post('/logout', [UserController::class, 'logout']);

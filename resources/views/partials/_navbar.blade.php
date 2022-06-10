@@ -55,5 +55,18 @@
                 Create Potatoes
             </a>
         </li>
+        <li>
+            <a href="{{ route('users-create') }}">
+                Register
+            </a>
+        </li>
+        <li>
+            <form method="POST" action="/logout">
+                @csrf
+                <button class="btn btn-secondary" type="submit">
+                    Logout <i class="fa-solid fa-door-closed"></i>
+                </button>
+            </form>
+        </li>
     </ul>
 </nav>

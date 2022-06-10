@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2022 at 06:07 PM
+-- Generation Time: Jun 10, 2022 at 12:25 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -277,6 +277,13 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'demoUser', 'demoUser@email.com', NULL, '$2y$10$84F07S8Od09kshmOpjc7mOtQwIXDoybYF9nYNx0JlqmxH3hzWLCGW', NULL, '2022-06-10 09:14:53', '2022-06-10 09:14:53');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -371,7 +378,7 @@ ALTER TABLE `companies`
 -- AUTO_INCREMENT for table `crisps`
 --
 ALTER TABLE `crisps`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -383,7 +390,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `flavours`
 --
 ALTER TABLE `flavours`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -407,7 +414,7 @@ ALTER TABLE `potatoes`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
