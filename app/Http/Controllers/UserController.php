@@ -30,6 +30,11 @@ class UserController extends Controller
         return redirect('/')->with('message', 'User created and logged in');
     }
 
+    public function login()
+    {
+        return view('users.login');
+    }
+
     public function logout(Request $request)
     {
         auth()->logout();
@@ -38,5 +43,24 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/')->with('message', 'You have been logged out!');
+    }
+
+    // login post request
+    public function authenticate(Request $request)
+    {
+        $formFields = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => 'required'
+        ]);
+
+        if (auth()->attempt($formFields)) {
+            $request->session()->regenerate();
+
+            return redirect('/')->with('message', 'You are now logged in!');
+        }
+
+        // Use non specific error message so you can't figure out if a person is registered to the site
+        // by using their email address in it
+        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
     }
 }

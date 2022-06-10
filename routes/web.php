@@ -1,13 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CrispController;
 use App\Http\Controllers\FlavourController;
 use App\Http\Controllers\PotatoController;
 use App\Http\Controllers\UserController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +20,8 @@ use App\Http\Controllers\UserController;
 |
 */
 
-// Home Page & About Page
-Route::get('/', function () {
-    return view('content.about');
-});
+// Home Page is the About Page
+Route::get('/', [AboutController::class, 'index'])->name('home');
 
 // Brands
 Route::get('/brands', [BrandController::class, 'index'])->name('brands');
@@ -109,6 +107,10 @@ Route::get('/potatoes/{potato}', [PotatoController::class, 'show'])->name('potat
 // Users
 Route::get('/register', [UserController::class, 'create'])->name('users-create');
 
+Route::get('/login', [UserController::class, 'login'])->name('users-login');
+
 Route::post('/users', [UserController::class, 'store']);
 
 Route::post('/logout', [UserController::class, 'logout']);
+
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
