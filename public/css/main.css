@@ -38,14 +38,6 @@ ul {
     list-style: none;
 }
 
-/* Paginaiton */
-nav .hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between>div:nth-child(1)>p {
-    margin-top: 1.25rem;
-}
-
-nav>div.hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between>div:nth-child(2) {
-    display: none;
-}
 
 /* Classes */
 
