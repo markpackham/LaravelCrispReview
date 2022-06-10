@@ -50,7 +50,7 @@ class CrispController extends Controller
 
         $formFields = $request->validate([
             'crisp_name' => 'required|unique:crisps,crisp_name',
-            'crisp_weight' => 'required',
+            'crisp_weight' => 'required|numeric',
             'brand_id' => 'required',
             'flavour_id' => 'required',
         ]);
@@ -101,7 +101,7 @@ class CrispController extends Controller
     {
         $formFields = $request->validate([
             'crisp_name' => 'required',
-            'crisp_weight' => 'required',
+            'crisp_weight' => 'required|numeric',
             'brand_id' => 'required',
             'flavour_id' => 'required',
         ]);
