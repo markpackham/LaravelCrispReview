@@ -1,5 +1,5 @@
 <x-layout>
-    <h1>Welcome to Crisp Review</h1>
+    <h1>Welcome @auth {{ auth()->user()->name }} @endauth to Crisp Review</h1>
     <h4>Lorem ipsum dolor sit amet.</h4>
     <img class="img_thumbnail crisp_image_mix" src="{{ asset('images/crisp_image_mix.jpg') }}"
         alt="Homepage collection of crisps">
