@@ -3,9 +3,9 @@
     @include('partials._crisp_search')
     <div>
         @if (count($crisps) > 0)
-            <ul>
+            <ul class="row align-items-start">
                 @foreach ($crisps as $crisp)
-                    <div class="mt-1">
+                    <div class="col mt-1">
                         <h3><a href="crisps/{{ $crisp->id }}">{{ $crisp->crisp_name }}</a></h3>
                         <li>Weight: {{ $crisp->crisp_weight }}g</li>
                         <p>Review: {{ $crisp->crisp_review }}</p>
