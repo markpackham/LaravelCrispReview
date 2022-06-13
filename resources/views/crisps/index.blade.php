@@ -3,8 +3,8 @@
     @include('partials._crisp_search')
     <div>
         @if (count($crisps) > 0)
-            @foreach ($crisps as $crisp)
-                <ul>
+            <ul>
+                @foreach ($crisps as $crisp)
                     <div class="mt-1">
                         <h3><a href="crisps/{{ $crisp->id }}">{{ $crisp->crisp_name }}</a></h3>
                         <li>Weight: {{ $crisp->crisp_weight }}g</li>
@@ -16,8 +16,8 @@
                         <li>Brand: {{ $crisp->brand->brand_name }}</li>
                         <li>Flavour: {{ $crisp->flavour->flavour_name }}</li>
                     </div>
-                </ul>
-            @endforeach
+                @endforeach
+            </ul>
         @else
             <p>No crisps</p>
         @endif
