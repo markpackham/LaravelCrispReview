@@ -3,12 +3,12 @@
     @include('partials._potato_search')
     <div>
         @if (count($potatoes) > 0)
-            <ul class="row align-items-start">
+            <ul class="index-list row align-items-start">
                 @foreach ($potatoes as $potato)
-                    <li class="col-4 mt-1">
+                    <div class="col-4 mt-1">
                         <a href="potatoes/{{ $potato->id }}">
                             {{ $potato->potato_name }}</a> : {{ $potato->potato_country }}
-                    </li>
+                    </div>
                 @endforeach
             </ul>
         @else

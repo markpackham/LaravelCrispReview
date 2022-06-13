@@ -3,10 +3,11 @@
     @include('partials._flavour_search')
     <div>
         @if (count($flavours) > 0)
-            <ul class="row align-items-start">
+            <ul class="index-list row align-items-start">
                 @foreach ($flavours as $flavour)
-                    <li class="col-4 mt-1"><a href="flavours/{{ $flavour->id }}">{{ $flavour->flavour_name }}</a>
-                    </li>
+                    <div class="col-4 mt-1"><a
+                            href="flavours/{{ $flavour->id }}">{{ $flavour->flavour_name }}</a>
+                    </div>
                 @endforeach
             </ul>
         @else

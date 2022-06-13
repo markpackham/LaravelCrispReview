@@ -3,9 +3,9 @@
     @include('partials._company_search')
     <div>
         @if (count($companies) > 0)
-            <ul class="row align-items-start">
+            <ul class="index-list row align-items-start">
                 @foreach ($companies as $company)
-                    <div class="col-4 mt-1">
+                    <div class="col-6 mt-1">
                         <h3 class="text-lg"><a
                                 href="companies/{{ $company->id }}">{{ $company->company_name }}</a></h3>
                         <li>{{ $company->company_address }}</li>
