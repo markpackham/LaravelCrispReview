@@ -70,9 +70,12 @@ Route::delete('/crisps/{crisp}', [CrispController::class, 'destroy'])->middlewar
 
 Route::get('/crisps/{crisp}', [CrispController::class, 'show'])->name('crisps-show');
 
-
 // Flavours
 Route::get('/flavours', [FlavourController::class, 'index'])->name('flavours');
+
+Route::get('/flavours/orderedASC', [FlavourController::class, 'orderedASC'])->name('flavours-orderedASC');
+
+Route::get('/flavours/orderedDESC', [FlavourController::class, 'orderedDESC'])->name('flavours-orderedDESC');
 
 Route::get('/flavours/create', [FlavourController::class, 'create'])->name('flavours-create')->middleware('auth');
 

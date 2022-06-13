@@ -21,6 +21,26 @@ class FlavourController extends Controller
         ]);
     }
 
+    public function orderedASC()
+    {
+
+        $flavours = Flavour::orderBy('flavour_name', 'ASC')->get();
+
+        return view('flavours.orderedASC', [
+            'flavours' => $flavours
+        ]);
+    }
+
+    public function orderedDESC()
+    {
+
+        $flavours = Flavour::orderBy('flavour_name', 'DESC')->get();
+
+        return view('flavours.orderedDESC', [
+            'flavours' => $flavours
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
