@@ -51,7 +51,6 @@ ul {
 }
 
 .navbar {
-    background-color: hsl(60, 80%, 47%);
     border-radius: 5px;
     justify-content: space-around;
     padding: 0.5rem;

@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
     <ul class="navbar-nav mr-auto">
         <li>
             <a href="{{ route('home') }}">
-                Home
+                Home <i class="fa-solid fa-house"></i>
             </a>
         </li>
         <li>
