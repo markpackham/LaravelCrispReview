@@ -16,7 +16,7 @@ class PotatoController extends Controller
     public function index()
     {
         return view('potatoes.index', [
-            'potatoes' => Potato::latest()->filter(request(['searchPotato']))->paginate(10)
+            'potatoes' => Potato::latest()->filter(request(['searchPotato']))->paginate(20)
         ]);
     }
 

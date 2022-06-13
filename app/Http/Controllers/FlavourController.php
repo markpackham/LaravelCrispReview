@@ -17,7 +17,7 @@ class FlavourController extends Controller
     public function index()
     {
         return view('flavours.index', [
-            'flavours' => Flavour::latest()->filter(request(['searchFlavour']))->paginate(10)
+            'flavours' => Flavour::latest()->filter(request(['searchFlavour']))->paginate(20)
         ]);
     }
 
