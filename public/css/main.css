@@ -34,6 +34,10 @@ li {
     margin-right: 0.75rem;
 }
 
+nav {
+    margin-bottom: 1rem;
+}
+
 ul {
     list-style: none;
 }
@@ -68,7 +72,15 @@ ul {
 
 /* Media Queries */
 
-@media(max-width: 960px) {}
+@media(max-width: 960px) {
+    nav {
+        font-size: 1.5rem;
+    }
+
+    .crisp_image_mix {
+        display: none;
+    }
+}
 
 @media(max-width:768px) {
     .index-list div {
