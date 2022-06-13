@@ -3,8 +3,8 @@
     @include('partials._company_search')
     <div>
         @if (count($companies) > 0)
-            @foreach ($companies as $company)
-                <ul>
+            <ul>
+                @foreach ($companies as $company)
                     <div class="mt-3">
                         <h3 class="text-lg"><a
                                 href="companies/{{ $company->id }}">{{ $company->company_name }}</a></h3>
@@ -12,8 +12,8 @@
                         <li>{{ $company->company_phone }}</li>
                         <li>{{ $company->company_website }}</li>
                     </div>
-                </ul>
-            @endforeach
+                @endforeach
+            </ul>
         @else
             <p>No companies</p>
         @endif
