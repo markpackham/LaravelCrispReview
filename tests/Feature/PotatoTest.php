@@ -16,14 +16,14 @@ class PotatoTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_potatoe()
+    public function test_potato()
     {
         $response = $this->get('/potatoes/1');
 
         $response->assertStatus(200);
     }
 
-    public function test_potatoe_edit()
+    public function test_potato_edit()
     {
         $user = User::where('id', '=', 1)->first();
         $response = $this->actingAs($user)->get('/potatoes/1/edit');
@@ -31,7 +31,7 @@ class PotatoTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_potatoe_edit_redirect()
+    public function test_potato_edit_redirect()
     {
         $response = $this->get('/potatoes/1/edit');
 
