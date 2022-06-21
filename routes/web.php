@@ -127,7 +127,7 @@ Route::controller(PotatoController::class)->group(
 // Users
 Route::controller(UserController::class)->group(
     function () {
-        Route::get('/register', 'create')->name('users-create');
+        Route::get('/register', 'create')->name('users-create')->middleware('guest');
 
         Route::get('/login', 'login')->name('users-login')->middleware('guest');
 
