@@ -43,6 +43,7 @@ Route::controller(BrandController::class)->group(function () {
     Route::get('/brands/{brand}', 'show')->name('brands-show');
 });
 
+
 // Companies
 Route::controller(CompanyController::class)->group(function () {
     Route::get('/companies', 'index')->name('companies');
@@ -59,6 +60,7 @@ Route::controller(CompanyController::class)->group(function () {
 
     Route::get('/companies/{company}', 'show')->name('companies-show');
 });
+
 
 // Crisps
 Route::controller(CrispController::class)->group(function () {
@@ -101,8 +103,8 @@ Route::controller(FlavourController::class)->group(
     }
 );
 
-// Potatoes
 
+// Potatoes
 Route::controller(PotatoController::class)->group(
     function () {
         Route::get('/potatoes',  'index')->name('potatoes');
