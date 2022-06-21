@@ -61,19 +61,22 @@ Route::controller(CompanyController::class)->group(function () {
 });
 
 // Crisps
-Route::get('/crisps', [CrispController::class, 'index'])->name('crisps');
+Route::controller(CrispController::class)->group(function () {
+    Route::get('/crisps', 'index')->name('crisps');
 
-Route::get('/crisps/create', [CrispController::class, 'create'])->name('crisps-create')->middleware('auth');
+    Route::get('/crisps/create', 'create')->name('crisps-create')->middleware('auth');
 
-Route::post('/crisps', [CrispController::class, 'store'])->middleware('auth');
+    Route::post('/crisps', 'store')->middleware('auth');
 
-Route::get('/crisps/{crisp}/edit', [CrispController::class, 'edit'])->name('crisps-edit');
+    Route::get('/crisps/{crisp}/edit', 'edit')->name('crisps-edit');
 
-Route::put('/crisps/{crisp}', [CrispController::class, 'update'])->middleware('auth');
+    Route::put('/crisps/{crisp}', 'update')->middleware('auth');
 
-Route::delete('/crisps/{crisp}', [CrispController::class, 'destroy'])->middleware('auth');
+    Route::delete('/crisps/{crisp}', 'destroy')->middleware('auth');
 
-Route::get('/crisps/{crisp}', [CrispController::class, 'show'])->name('crisps-show');
+    Route::get('/crisps/{crisp}', 'show')->name('crisps-show');
+});
+
 
 // Flavours
 Route::get('/flavours', [FlavourController::class, 'index'])->name('flavours');
