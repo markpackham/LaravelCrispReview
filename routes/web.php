@@ -21,39 +21,44 @@ use App\Http\Controllers\UserController;
 */
 
 // Home Page is the About Page
-Route::get('/', [AboutController::class, 'index'])->name('home');
+Route::controller(AboutController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+});
+
 
 // Brands
-Route::get('/brands', [BrandController::class, 'index'])->name('brands');
+Route::controller(BrandController::class)->group(function () {
+    Route::get('/brands', 'index')->name('brands');
 
-Route::get('/brands/create', [BrandController::class, 'create'])->name('brands-create')->middleware('auth');
+    Route::get('/brands/create', 'create')->name('brands-create')->middleware('auth');
 
-Route::post('/brands', [BrandController::class, 'store'])->middleware('auth');
+    Route::post('/brands', 'store')->middleware('auth');
 
-Route::get('/brands/{brand}/edit', [BrandController::class, 'edit'])->name('brands-edit')->middleware('auth');
+    Route::get('/brands/{brand}/edit', 'edit')->name('brands-edit')->middleware('auth');
 
-Route::put('/brands/{brand}', [BrandController::class, 'update'])->middleware('auth');
+    Route::put('/brands/{brand}', 'update')->middleware('auth');
 
-Route::delete('/brands/{brand}', [BrandController::class, 'destroy'])->middleware('auth');
+    Route::delete('/brands/{brand}', 'destroy')->middleware('auth');
 
-Route::get('/brands/{brand}', [BrandController::class, 'show'])->name('brands-show');
-
+    Route::get('/brands/{brand}', 'show')->name('brands-show');
+});
 
 // Companies
-Route::get('/companies', [CompanyController::class, 'index'])->name('companies');
+Route::controller(CompanyController::class)->group(function () {
+    Route::get('/companies', 'index')->name('companies');
 
-Route::get('/companies/create', [CompanyController::class, 'create'])->name('companies-create')->middleware('auth');
+    Route::get('/companies/create', 'create')->name('companies-create')->middleware('auth');
 
-Route::post('/companies', [CompanyController::class, 'store'])->middleware('auth');
+    Route::post('/companies', 'store')->middleware('auth');
 
-Route::get('/companies/{company}/edit', [CompanyController::class, 'edit'])->name('companies-edit')->middleware('auth');
+    Route::get('/companies/{company}/edit', 'edit')->name('companies-edit')->middleware('auth');
 
-Route::put('/companies/{company}', [CompanyController::class, 'update'])->middleware('auth');
+    Route::put('/companies/{company}', 'update')->middleware('auth');
 
-Route::delete('/companies/{company}', [CompanyController::class, 'destroy'])->middleware('auth');
+    Route::delete('/companies/{company}', 'destroy')->middleware('auth');
 
-Route::get('/companies/{company}', [CompanyController::class, 'show'])->name('companies-show');
-
+    Route::get('/companies/{company}', 'show')->name('companies-show');
+});
 
 // Crisps
 Route::get('/crisps', [CrispController::class, 'index'])->name('crisps');
