@@ -79,49 +79,60 @@ Route::controller(CrispController::class)->group(function () {
 
 
 // Flavours
-Route::get('/flavours', [FlavourController::class, 'index'])->name('flavours');
+Route::controller(FlavourController::class)->group(
+    function () {
+        Route::get('/flavours', 'index')->name('flavours');
 
-Route::get('/flavours/orderedASC', [FlavourController::class, 'orderedASC'])->name('flavours-orderedASC');
+        Route::get('/flavours/orderedASC',  'orderedASC')->name('flavours-orderedASC');
 
-Route::get('/flavours/orderedDESC', [FlavourController::class, 'orderedDESC'])->name('flavours-orderedDESC');
+        Route::get('/flavours/orderedDESC',  'orderedDESC')->name('flavours-orderedDESC');
 
-Route::get('/flavours/create', [FlavourController::class, 'create'])->name('flavours-create')->middleware('auth');
+        Route::get('/flavours/create', 'create')->name('flavours-create')->middleware('auth');
 
-Route::post('/flavours', [FlavourController::class, 'store'])->middleware('auth');
+        Route::post('/flavours',  'store')->middleware('auth');
 
-Route::get('/flavours/{flavour}/edit', [FlavourController::class, 'edit'])->name('flavours-edit')->middleware('auth');
+        Route::get('/flavours/{flavour}/edit',  'edit')->name('flavours-edit')->middleware('auth');
 
-Route::put('/flavours/{flavour}', [FlavourController::class, 'update'])->middleware('auth');
+        Route::put('/flavours/{flavour}',  'update')->middleware('auth');
 
-Route::delete('/flavours/{flavour}', [FlavourController::class, 'destroy'])->middleware('auth');
+        Route::delete('/flavours/{flavour}',  'destroy')->middleware('auth');
 
-Route::get('/flavours/{flavour}', [FlavourController::class, 'show'])->name('flavours-show');
-
+        Route::get('/flavours/{flavour}', 'show')->name('flavours-show');
+    }
+);
 
 // Potatoes
 
-Route::get('/potatoes', [PotatoController::class, 'index'])->name('potatoes');
+Route::controller(PotatoController::class)->group(
+    function () {
+        Route::get('/potatoes',  'index')->name('potatoes');
 
-Route::get('/potatoes/create', [PotatoController::class, 'create'])->name('potatoes-create')->middleware('auth');
+        Route::get('/potatoes/create',  'create')->name('potatoes-create')->middleware('auth');
 
-Route::post('/potatoes', [PotatoController::class, 'store'])->middleware('auth');
+        Route::post('/potatoes',  'store')->middleware('auth');
 
-Route::get('/potatoes/{potato}/edit', [PotatoController::class, 'edit'])->name('potatoes-edit')->middleware('auth');
+        Route::get('/potatoes/{potato}/edit', 'edit')->name('potatoes-edit')->middleware('auth');
 
-Route::put('/potatoes/{potato}', [PotatoController::class, 'update'])->middleware('auth');
+        Route::put('/potatoes/{potato}',  'update')->middleware('auth');
 
-Route::delete('/potatoes/{potato}', [PotatoController::class, 'destroy'])->middleware('auth');
+        Route::delete('/potatoes/{potato}',  'destroy')->middleware('auth');
 
-// Always put SHOW at the end
-Route::get('/potatoes/{potato}', [PotatoController::class, 'show'])->name('potatoes-show');
+        Route::get('/potatoes/{potato}', 'show')->name('potatoes-show');
+    }
+);
+
 
 // Users
-Route::get('/register', [UserController::class, 'create'])->name('users-create');
+Route::controller(UserController::class)->group(
+    function () {
+        Route::get('/register', 'create')->name('users-create');
 
-Route::get('/login', [UserController::class, 'login'])->name('users-login')->middleware('guest');
+        Route::get('/login', 'login')->name('users-login')->middleware('guest');
 
-Route::post('/users', [UserController::class, 'store']);
+        Route::post('/users', 'store');
 
-Route::post('/logout', [UserController::class, 'logout']);
+        Route::post('/logout', 'logout');
 
-Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+        Route::post('/users/authenticate', 'authenticate');
+    }
+);
