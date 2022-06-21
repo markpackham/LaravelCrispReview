@@ -3,7 +3,8 @@
 namespace Tests\Unit;
 
 use App\Models\Potato;
-use PHPUnit\Framework\TestCase;
+use App\Models\User;
+use Tests\TestCase;
 
 class PotatoTest extends TestCase
 {
@@ -17,12 +18,13 @@ class PotatoTest extends TestCase
         $this->assertTrue($potato1->potato_name === 'Starchy');
     }
 
-    public function test_potato_country()
+    public function test_potato_country_created()
     {
-        $potato1 = new Potato();
-        $potato1->potato_name = 'Starchy';
-        $potato1->potato_country = 'Narnia';
+        $user = User::where('id', '=', 1)->first();
+        $this->actingAs($user)->post('/potatoes', ['potato_name' => 'Namey', 'potato_country' => 'Spuddy']);
 
-        $this->assertTrue($potato1->potato_country === 'Narnia');
+        $potato1 = Potato::where('potato_name', '=', 'Namey')->first();
+
+        $this->assertEquals('Spuddy', $potato1->potato_country);
     }
 }
