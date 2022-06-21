@@ -16,6 +16,13 @@ class PotatoTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_potatoe()
+    {
+        $response = $this->get('/potatoes/1');
+
+        $response->assertStatus(200);
+    }
+
     public function test_potatoes_create_guest_redirect()
     {
         $response = $this->get('/potatoes/create');

@@ -85,19 +85,19 @@ Route::controller(FlavourController::class)->group(
     function () {
         Route::get('/flavours', 'index')->name('flavours');
 
-        Route::get('/flavours/orderedASC',  'orderedASC')->name('flavours-orderedASC');
+        Route::get('/flavours/orderedASC', 'orderedASC')->name('flavours-orderedASC');
 
-        Route::get('/flavours/orderedDESC',  'orderedDESC')->name('flavours-orderedDESC');
+        Route::get('/flavours/orderedDESC', 'orderedDESC')->name('flavours-orderedDESC');
 
         Route::get('/flavours/create', 'create')->name('flavours-create')->middleware('auth');
 
-        Route::post('/flavours',  'store')->middleware('auth');
+        Route::post('/flavours', 'store')->middleware('auth');
 
-        Route::get('/flavours/{flavour}/edit',  'edit')->name('flavours-edit')->middleware('auth');
+        Route::get('/flavours/{flavour}/edit', 'edit')->name('flavours-edit')->middleware('auth');
 
-        Route::put('/flavours/{flavour}',  'update')->middleware('auth');
+        Route::put('/flavours/{flavour}', 'update')->middleware('auth');
 
-        Route::delete('/flavours/{flavour}',  'destroy')->middleware('auth');
+        Route::delete('/flavours/{flavour}', 'destroy')->middleware('auth');
 
         Route::get('/flavours/{flavour}', 'show')->name('flavours-show');
     }
@@ -107,17 +107,17 @@ Route::controller(FlavourController::class)->group(
 // Potatoes
 Route::controller(PotatoController::class)->group(
     function () {
-        Route::get('/potatoes',  'index')->name('potatoes');
+        Route::get('/potatoes', 'index')->name('potatoes');
 
-        Route::get('/potatoes/create',  'create')->name('potatoes-create')->middleware('auth');
+        Route::get('/potatoes/create', 'create')->name('potatoes-create')->middleware('auth');
 
-        Route::post('/potatoes',  'store')->middleware('auth');
+        Route::post('/potatoes', 'store')->middleware('auth');
 
         Route::get('/potatoes/{potato}/edit', 'edit')->name('potatoes-edit')->middleware('auth');
 
-        Route::put('/potatoes/{potato}',  'update')->middleware('auth');
+        Route::put('/potatoes/{potato}', 'update')->middleware('auth');
 
-        Route::delete('/potatoes/{potato}',  'destroy')->middleware('auth');
+        Route::delete('/potatoes/{potato}', 'destroy')->middleware('auth');
 
         Route::get('/potatoes/{potato}', 'show')->name('potatoes-show');
     }
