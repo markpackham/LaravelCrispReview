@@ -70,7 +70,7 @@ Route::controller(CrispController::class)->group(function () {
 
     Route::post('/crisps', 'store')->middleware('auth');
 
-    Route::get('/crisps/{crisp}/edit', 'edit')->name('crisps-edit');
+    Route::get('/crisps/{crisp}/edit', 'edit')->name('crisps-edit')->middleware('auth');
 
     Route::put('/crisps/{crisp}', 'update')->middleware('auth');
 
