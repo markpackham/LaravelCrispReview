@@ -18,13 +18,14 @@ class PotatoTest extends TestCase
         $this->assertTrue($potato1->potato_name === 'Starchy');
     }
 
-    public function test_potato_country_created()
-    {
-        $user = User::where('id', '=', 1)->first();
-        $this->actingAs($user)->post('/potatoes', ['potato_name' => 'Namey', 'potato_country' => 'Spuddy']);
+    // public function test_potato_country_created()
+    // {
+    //     $user = User::where('id', '=', 1)->first();
+    //     $this->actingAs($user)->post('/potatoes', ['potato_name' => 'Namey', 'potato_country' => 'Spuddy']);
 
-        $potato1 = Potato::where('potato_name', '=', 'Namey')->first();
+    //     $potato1 = Potato::where('potato_name', '=', 'Namey')->first();
 
-        $this->assertEquals('Spuddy', $potato1->potato_country);
-    }
+    //     $this->assertEquals('Spuddy', $potato1->potato_country);
+    // }
+
 }
