@@ -9,13 +9,14 @@ use Tests\TestCase;
 class PotatoTest extends TestCase
 {
 
-    public function test_potato_name()
+    public function test_potato_attributes()
     {
         $potato1 = new Potato();
         $potato1->potato_name = 'Starchy';
         $potato1->potato_country = 'Narnia';
 
         $this->assertTrue($potato1->potato_name === 'Starchy');
+        $this->assertTrue($potato1->potato_country === 'Narnia');
     }
 
     // public function test_potato_country_created()

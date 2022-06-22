@@ -8,7 +8,7 @@ use App\Models\Flavour;
 
 class FlavourTest extends TestCase
 {
-    public function test_flavour_name()
+    public function test_flavour_attributes()
     {
         $flavour1 = new Flavour();
         $flavour1->flavour_name = 'Shrimp';
