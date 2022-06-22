@@ -26,6 +26,7 @@ class PotatoTest extends TestCase
 
     //     $potato1 = Potato::where('potato_name', '=', 'Namey')->first();
 
+    //     $this->assertEquals('Namey', $potato1->potato_name);
     //     $this->assertEquals('Spuddy', $potato1->potato_country);
     // }
 

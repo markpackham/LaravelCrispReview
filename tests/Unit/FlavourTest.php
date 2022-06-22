@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
 use App\Models\User;
 use App\Models\Flavour;
+use Tests\TestCase;
 
 class FlavourTest extends TestCase
 {
@@ -21,7 +21,7 @@ class FlavourTest extends TestCase
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/flavours', ['flavour_name' => 'Shrimp']);
 
-        $flavour1 = flavour::where('flavour_name', '=', 'Shrimp')->first();
+        $flavour1 = Flavour::where('flavour_name', '=', 'Shrimp')->first();
 
         $this->assertEquals('Shrimp', $flavour1->flavour_name);
     }
