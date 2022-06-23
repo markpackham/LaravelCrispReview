@@ -18,7 +18,7 @@ class BrandTest extends TestCase
         $this->assertTrue($brand1->company_id === 1);
     }
 
-    public function test_brand_name_created()
+    public function test_brand_created()
     {
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/brands', ['brand_name' => 'Walkers Ridge Crisps', 'company_id' => 5]);

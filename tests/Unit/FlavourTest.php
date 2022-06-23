@@ -16,7 +16,7 @@ class FlavourTest extends TestCase
         $this->assertTrue($flavour1->flavour_name === 'Shrimp');
     }
 
-    public function test_flavour_name_created()
+    public function test_flavour_created()
     {
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/flavours', ['flavour_name' => 'Shrimp']);
