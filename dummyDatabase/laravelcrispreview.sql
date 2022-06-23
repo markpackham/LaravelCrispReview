@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2022 at 12:25 PM
+-- Generation Time: Jun 23, 2022 at 02:47 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -47,7 +47,9 @@ INSERT INTO `brands` (`id`, `created_at`, `updated_at`, `brand_name`, `company_i
 (5, NULL, NULL, 'Walkers', 2),
 (6, NULL, NULL, 'Golden Wonder', 5),
 (7, NULL, NULL, 'Chipsticks', 6),
-(8, NULL, NULL, 'Mackie\'s of Scotland', 7);
+(8, NULL, NULL, 'Mackie\'s of Scotland', 7),
+(11, '2022-06-22 17:10:53', '2022-06-22 17:10:53', 'Walkers Ridge Crisps', 5),
+(12, '2022-06-23 11:29:27', '2022-06-23 11:29:27', 'Hula Hoops', 4);
 
 -- --------------------------------------------------------
 
@@ -76,7 +78,8 @@ INSERT INTO `companies` (`id`, `company_name`, `company_address`, `company_phone
 (4, 'KP Snacks Limited', 'Fifth Floor, The Urban Building, 3-9 Albert Street, Slough, SL1 2BE', '0800 917 4494', 'https://www.kpsnacks.com/', NULL, NULL),
 (5, 'Tayto Group Limited', 'Princewood Road, Earlstrees Industrial Estate, Corby, Northamptonshire NN17 4AP, The Urban Building, 3-9 Albert Street, Slough, SL1 2BE', '0800 917 4494', 'https://www.taytogroup.com/', NULL, NULL),
 (6, 'PepsiCo Australia Holdings Pty Ltd', 'L 4 799 Pacific Hwy Chatswood, New South Wales, 2067 Australia', '61-1800025789', 'https://smiths.com.au/', NULL, NULL),
-(7, 'Mackie’s Crisps', 'Mackie’s at Taypack, Inchcoonans, Errol, Perthshire PH2 7RB', '01821 641250', 'https://www.mackiescrisps.co.uk/', NULL, NULL);
+(7, 'Mackie’s Crisps', 'Mackie’s at Taypack, Inchcoonans, Errol, Perthshire PH2 7RB', '01821 641250', 'https://www.mackiescrisps.co.uk/', NULL, NULL),
+(10, 'Burts Snacks Ltd', 'The Klamp House, Belliver Way, Roborough, Plymouth, PL6 7BP', '0800 023 7404', 'https://www.burtssnacks.com/', '2022-06-23 10:10:29', '2022-06-23 10:10:29');
 
 -- --------------------------------------------------------
 
@@ -111,7 +114,8 @@ INSERT INTO `crisps` (`id`, `crisp_name`, `crisp_image`, `crisp_weight`, `crisp_
 (7, 'Kp Skips Prawn Cocktail Crisps 6 X 13.1G', 'crisp_image/5YCtwZCPuRom1Jjx8csIlS9L9atJiRHHICPbQeSL.jpg', 79, 4, 'Best prawn and cocktail crisp flavour ever and novel fizzling crisp design, they lose 1 point for the lack of volume.', 4, 7, NULL, '2022-06-09 15:05:45'),
 (8, 'Flamegrilled Aberdeen Angus', 'crisp_image/yv6LaF8kyOjzUteibL2ZPs93LhUdikohbgUqIK43.png', 40, 4, 'Great unique taste, good value for money', 8, 14, NULL, '2022-06-09 15:06:10'),
 (9, 'Johnny\'s Spicy Onion Rings', 'crisp_image/w8sS9E3LrCWq2hlbE4MRLSL8U93PknXMvofCjNb9.jpg', 25, 5, 'Perfect strong flavour and very cheap, best crisps so far', 1, 1, NULL, '2022-06-09 15:06:56'),
-(10, 'Lorne Sausage & Brown Sauce Crisps', 'crisp_image/GW4ytVARab5yW5mZh7mhOWQkmVeCkD9wox8g3dVB.webp', 150, 3, 'Ok but unique flavour, bonus points for originality', 8, 28, NULL, '2022-06-09 15:07:27');
+(10, 'Lorne Sausage & Brown Sauce Crisps', 'crisp_image/GW4ytVARab5yW5mZh7mhOWQkmVeCkD9wox8g3dVB.webp', 150, 3, 'Ok but unique flavour, bonus points for originality', 8, 28, NULL, '2022-06-09 15:07:27'),
+(16, 'Hula Hoops Original Crisps Multipack 12X24g', 'crisp_image/ARTynHoqTYCDSYcvzCshK6a6jTE1b3Qeiurlhtqz.jpg', 24, 2, 'Ok salt and hardness, descent design', 12, 4, '2022-06-23 11:39:27', '2022-06-23 11:47:09');
 
 -- --------------------------------------------------------
 
@@ -167,7 +171,8 @@ INSERT INTO `flavours` (`id`, `flavour_name`, `created_at`, `updated_at`) VALUES
 (18, 'Cheese', NULL, NULL),
 (19, 'Tomato', NULL, NULL),
 (20, 'Caramelized Red Onion', NULL, NULL),
-(28, 'Sausage', NULL, NULL);
+(28, 'Sausage', NULL, NULL),
+(31, 'Shrimp', '2022-06-22 16:46:23', '2022-06-22 16:46:23');
 
 -- --------------------------------------------------------
 
@@ -257,7 +262,8 @@ INSERT INTO `potatoes` (`id`, `potato_name`, `potato_country`, `created_at`, `up
 (10, 'Red Gold', 'Canada', NULL, NULL),
 (11, 'Russian Blue', 'Russia', NULL, NULL),
 (12, 'Shetland Black', 'UK', NULL, NULL),
-(13, 'Yukon Gold', 'Canada', NULL, NULL);
+(13, 'Yukon Gold', 'Canada', NULL, NULL),
+(45, 'Duke of York', 'UK', '2022-06-23 10:03:16', '2022-06-23 10:03:16');
 
 -- --------------------------------------------------------
 
@@ -366,19 +372,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `crisps`
 --
 ALTER TABLE `crisps`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -390,7 +396,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `flavours`
 --
 ALTER TABLE `flavours`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -408,7 +414,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `potatoes`
 --
 ALTER TABLE `potatoes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `users`
