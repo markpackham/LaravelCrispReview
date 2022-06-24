@@ -39,10 +39,10 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $formFields = $request->validate([
-            'company_name' => 'required', 'unique:companies,company_name',
-            'company_address' => 'required',
-            'company_phone' => 'required',
-            'company_website' => 'required',
+            'company_name' => ['required', 'unique:companies,company_name'],
+            'company_address' => ['required'],
+            'company_phone' => ['required'],
+            'company_website' => ['required'],
         ]);
 
         Company::create($formFields);
@@ -84,10 +84,10 @@ class CompanyController extends Controller
     public function update(Request $request, Company $company)
     {
         $formFields = $request->validate([
-            'company_name' => 'required|unique:companies,company_name',
-            'company_address' => 'required',
-            'company_phone' => 'required',
-            'company_website' => 'required',
+            'company_name' => ['required'],
+            'company_address' => ['required'],
+            'company_phone' => ['required'],
+            'company_website' => ['required'],
         ]);
 
         $company->update($formFields);
