@@ -34,4 +34,24 @@ class CompanyTest extends TestCase
         $this->assertEquals('0800 023 7404', $company1->company_phone);
         $this->assertEquals('https://www.burtssnacks.com/', $company1->company_website);
     }
+
+    public function test_company_deleted()
+    {
+        $user = User::where('id', '=', 1)->first();
+        $this->actingAs($user)->post('/companies', ['company_name' => 'Delete Company Name', 'company_address' => 'The Klamp House, Belliver Way, Roborough, Plymouth, PL6 7BP', 'company_phone' => '0800 023 7404', 'company_website' => 'https://www.burtssnacks.com/']);
+
+        $company1 = Company::where('company_name', '=', 'Delete Company Name')->first();
+
+        $this->assertEquals('Delete Company Name', $company1->company_name);
+        $this->assertEquals('The Klamp House, Belliver Way, Roborough, Plymouth, PL6 7BP', $company1->company_address);
+        $this->assertEquals('0800 023 7404', $company1->company_phone);
+        $this->assertEquals('https://www.burtssnacks.com/', $company1->company_website);
+
+        $companyID = $company1->id;
+
+        $this->actingAs($user)->delete("/companies/$companyID");
+
+        $company1 = Company::where('company_name', '=', 'Delete Company Name')->first();
+        $this->assertNull($company1);
+    }
 }
