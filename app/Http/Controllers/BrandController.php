@@ -42,8 +42,8 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $formFields = $request->validate([
-            'brand_name' =>  'required|unique:brands,brand_name',
-            'company_id' => 'required'
+            'brand_name' =>  ['required', 'unique:brands', 'brand_name'],
+            'company_id' => ['required']
         ]);
 
         Brand::create($formFields);
@@ -86,8 +86,8 @@ class BrandController extends Controller
     public function update(Request $request, Brand $brand)
     {
         $formFields = $request->validate([
-            'brand_name' => 'required',
-            'company_id' => 'required'
+            'brand_name' => ['required'],
+            'company_id' => ['required']
         ]);
 
         $brand->update($formFields);
