@@ -7,6 +7,7 @@ use App\Models\Crisp;
 use App\Models\Flavour;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Validator;
 
 class CrispController extends Controller
 {
@@ -49,13 +50,13 @@ class CrispController extends Controller
     {
 
         $formFields = $request->validate([
-            'crisp_name' => 'required|unique:crisps,crisp_name',
-            'crisp_weight' => 'required|numeric|min:1',
-            'crisp_review_score' => 'numeric|min:1',
-            'crisp_review' => 'required_with:crisp_review_score',
-            'brand_id' => 'required',
-            'flavour_id' => 'required',
-            'crisp_image' => 'image|mimes:jpg,png,jpeg,svg,webp|max:5120',
+            'crisp_name' => ['required', 'unique:crisps,crisp_name'],
+            'crisp_weight' => ['required', 'numeric', 'min:1'],
+            'crisp_review_score' => ['numeric', 'min:1'],
+            'crisp_review' => ['required_with:crisp_review_score'],
+            'brand_id' => ['required'],
+            'flavour_id' => ['required'],
+            'crisp_image' => ['image', 'mimes:jpg,png,jpeg,svg,webp', 'max:5120'],
         ]);
 
         if ($request->hasFile('crisp_image')) {
@@ -103,13 +104,13 @@ class CrispController extends Controller
     public function update(Request $request, Crisp $crisp)
     {
         $formFields = $request->validate([
-            'crisp_name' => 'required',
-            'crisp_weight' => 'required|numeric|min:1',
-            'crisp_review_score' => 'numeric|min:1',
-            'crisp_review' => 'required_with:crisp_review_score',
-            'brand_id' => 'required',
-            'flavour_id' => 'required',
-            'crisp_image' => 'image|mimes:jpg,png,jpeg,svg,webp|max:5120',
+            'crisp_name' => ['required'],
+            'crisp_weight' => ['required', 'numeric', 'min:1'],
+            'crisp_review_score' => ['numeric', 'min:1'],
+            'crisp_review' => ['required_with:crisp_review_score'],
+            'brand_id' => ['required'],
+            'flavour_id' => ['required'],
+            'crisp_image' => ['image', 'mimes:jpg,png,jpeg,svg,webp', 'max:5120'],
         ]);
 
         if ($request->hasFile('crisp_image')) {
