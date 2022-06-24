@@ -41,7 +41,7 @@
         </div>
 
         <div class="form-group">
-            <label for="crisp_image">Crisp Image</label>
+            <label for="crisp_image">Crisp Image (less than 5MB)</label>
             <input class="form-control" type="file" name="crisp_image" value="{{ old('crisp_image') }}" />
             @error('crisp_image')
                 <p class="text-danger">{{ $message }}</p>

@@ -33,8 +33,6 @@ class CrispTest extends TestCase
 
         $crisp1 = Crisp::where('crisp_name', '=', 'Hula Hoops Original Crisps Multipack 12X24g')->first();
 
-        var_dump($crisp1);
-
         $this->assertEquals('Hula Hoops Original Crisps Multipack 12X24g', $crisp1->crisp_name);
         $this->assertEquals(24, $crisp1->crisp_weight);
         $this->assertEquals(2, $crisp1->crisp_review_score);
