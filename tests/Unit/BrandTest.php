@@ -28,4 +28,21 @@ class BrandTest extends TestCase
         $this->assertEquals('Walkers Ridge Crisps', $brand1->brand_name);
         $this->assertEquals(5, $brand1->company_id);
     }
+
+    public function test_brand_deleted()
+    {
+        $user = User::where('id', '=', 1)->first();
+        $this->actingAs($user)->post('/brands', ['brand_name' => 'Delete Brand Name', 'company_id' => 1]);
+
+        $brand1 = Brand::where('brand_name', '=', 'Delete Brand Name')->first();
+        var_dump($brand1);
+
+        $this->assertEquals('Delete Brand Name', $brand1->brand_name);
+        $this->assertEquals(1, $brand1->company_id);
+
+        $brandID = $brand1->id;
+
+        $this->actingAs($user)->delete("/brands/$brandID");
+        $this->assertNull($brand1);
+    }
 }
