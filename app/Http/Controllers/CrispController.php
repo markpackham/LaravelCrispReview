@@ -55,6 +55,7 @@ class CrispController extends Controller
             'crisp_review' => 'required_with:crisp_review_score',
             'brand_id' => 'required',
             'flavour_id' => 'required',
+            'crisp_image' => 'image|mimes:jpg,png,jpeg,svg,webp|max:5120',
         ]);
 
         if ($request->hasFile('crisp_image')) {
@@ -108,6 +109,7 @@ class CrispController extends Controller
             'crisp_review' => 'required_with:crisp_review_score',
             'brand_id' => 'required',
             'flavour_id' => 'required',
+            'crisp_image' => 'image|mimes:jpg,png,jpeg,svg,webp|max:5120',
         ]);
 
         if ($request->hasFile('crisp_image')) {
