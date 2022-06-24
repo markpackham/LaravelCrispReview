@@ -16,6 +16,7 @@ a {
 
 a:hover {
     font-weight: bold;
+    opacity: 0.9;
 }
 
 button:hover {
