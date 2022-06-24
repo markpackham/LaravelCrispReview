@@ -52,6 +52,7 @@ class CrispController extends Controller
             'crisp_name' => 'required|unique:crisps,crisp_name',
             'crisp_weight' => 'required|numeric',
             'crisp_review_score' => 'numeric',
+            'crisp_review' => 'required_with:crisp_review_score',
             'brand_id' => 'required',
             'flavour_id' => 'required',
         ]);
@@ -104,7 +105,7 @@ class CrispController extends Controller
             'crisp_name' => 'required',
             'crisp_weight' => 'required|numeric',
             'crisp_review_score' => 'numeric',
-            'crisp_review' => '',
+            'crisp_review' => 'required_with:crisp_review_score',
             'brand_id' => 'required',
             'flavour_id' => 'required',
         ]);
