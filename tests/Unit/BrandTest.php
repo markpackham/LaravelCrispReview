@@ -46,4 +46,30 @@ class BrandTest extends TestCase
         $brand1 = Brand::where('brand_name', '=', 'Delete Brand Name')->first();
         $this->assertNull($brand1);
     }
+
+    public function test_brand_company_id_edited_brand_deleted()
+    {
+        $user = User::where('id', '=', 1)->first();
+        $this->actingAs($user)->post('/brands', ['brand_name' => 'Delete Brand Name', 'company_id' => 1]);
+
+        $brand1 = Brand::where('brand_name', '=', 'Delete Brand Name')->first();
+
+        $this->assertEquals('Delete Brand Name', $brand1->brand_name);
+        $this->assertEquals(1, $brand1->company_id);
+
+        $brandID = $brand1->id;
+
+        $this->actingAs($user)->put("/brands/$brandID", ['brand_name' => 'Delete Brand Name', 'company_id' => 2]);
+
+        $brand1 = Brand::where('brand_name', '=', 'Delete Brand Name')->first();
+
+        $this->assertEquals(2, $brand1->company_id);
+
+        $brandID = $brand1->id;
+
+        $this->actingAs($user)->delete("/brands/$brandID");
+
+        $brand1 = Brand::where('brand_name', '=', 'Delete Brand Name')->first();
+        $this->assertNull($brand1);
+    }
 }
