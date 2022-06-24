@@ -48,7 +48,7 @@ class PotatoTest extends TestCase
         $this->assertNull($potato1);
     }
 
-    public function test_potato_edited_deleted()
+    public function test_potato_country_edited_potato_deleted()
     {
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/potatoes', ['potato_name' => 'Delete Spud Name', 'potato_country' => 'Delete Spud Country']);
