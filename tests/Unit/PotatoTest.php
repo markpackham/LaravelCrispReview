@@ -47,4 +47,27 @@ class PotatoTest extends TestCase
         $potato1 = Potato::where('potato_name', '=', 'Delete Spud Name')->first();
         $this->assertNull($potato1);
     }
+
+    public function test_potato_edited_deleted()
+    {
+        $user = User::where('id', '=', 1)->first();
+        $this->actingAs($user)->post('/potatoes', ['potato_name' => 'Delete Spud Name', 'potato_country' => 'Delete Spud Country']);
+
+        $potatoDel = Potato::where('potato_name', '=', 'Delete Spud Name')->first();
+
+        $this->assertEquals('Delete Spud Name', $potatoDel->potato_name);
+        $this->assertEquals('Delete Spud Country', $potatoDel->potato_country);
+
+        $potatoDelId = $potatoDel->id;
+
+        $this->actingAs($user)->put("/potatoes/$potatoDelId", ['potato_name' => 'Delete Spud Name', 'potato_country' => 'Edited Spud Country']);
+
+        $potatoDel = Potato::where('potato_name', '=', 'Delete Spud Name')->first();
+        $this->assertEquals('Edited Spud Country', $potatoDel->potato_country);
+
+        $this->actingAs($user)->delete("/potatoes/$potatoDelId");
+
+        $potatoDel = Potato::where('potato_name', '=', 'Delete Spud Name')->first();
+        $this->assertNull($potatoDel);
+    }
 }
