@@ -22,7 +22,6 @@ class BrandTest extends TestCase
     {
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/brands', ['brand_name' => 'Walkers Ridge Crisps', 'company_id' => 5]);
-
         $brand1 = Brand::where('brand_name', '=', 'Walkers Ridge Crisps')->first();
 
         $this->assertEquals('Walkers Ridge Crisps', $brand1->brand_name);
@@ -33,17 +32,14 @@ class BrandTest extends TestCase
     {
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/brands', ['brand_name' => 'Delete Brand Name', 'company_id' => 1]);
-
         $brand1 = Brand::where('brand_name', '=', 'Delete Brand Name')->first();
 
         $this->assertEquals('Delete Brand Name', $brand1->brand_name);
         $this->assertEquals(1, $brand1->company_id);
 
-        $brandID = $brand1->id;
-
-        $this->actingAs($user)->delete("/brands/$brandID");
-
+        $this->actingAs($user)->delete("/brands/$brand1->id");
         $brand1 = Brand::where('brand_name', '=', 'Delete Brand Name')->first();
+
         $this->assertNull($brand1);
     }
 
@@ -51,25 +47,19 @@ class BrandTest extends TestCase
     {
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/brands', ['brand_name' => 'Delete Brand Name', 'company_id' => 1]);
-
         $brand1 = Brand::where('brand_name', '=', 'Delete Brand Name')->first();
 
         $this->assertEquals('Delete Brand Name', $brand1->brand_name);
         $this->assertEquals(1, $brand1->company_id);
 
-        $brandID = $brand1->id;
-
-        $this->actingAs($user)->put("/brands/$brandID", ['brand_name' => 'Delete Brand Name', 'company_id' => 2]);
-
+        $this->actingAs($user)->put("/brands/$brand1->id", ['brand_name' => 'Delete Brand Name', 'company_id' => 2]);
         $brand1 = Brand::where('brand_name', '=', 'Delete Brand Name')->first();
 
         $this->assertEquals(2, $brand1->company_id);
 
-        $brandID = $brand1->id;
-
-        $this->actingAs($user)->delete("/brands/$brandID");
-
+        $this->actingAs($user)->delete("/brands/$brand1->id");
         $brand1 = Brand::where('brand_name', '=', 'Delete Brand Name')->first();
+
         $this->assertNull($brand1);
     }
 }

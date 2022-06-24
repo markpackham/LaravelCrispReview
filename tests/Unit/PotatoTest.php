@@ -23,7 +23,6 @@ class PotatoTest extends TestCase
     {
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/potatoes', ['potato_name' => 'Duke of York', 'potato_country' => 'UK']);
-
         $potato1 = Potato::where('potato_name', '=', 'Duke of York')->first();
 
         $this->assertEquals('Duke of York', $potato1->potato_name);
@@ -34,17 +33,14 @@ class PotatoTest extends TestCase
     {
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/potatoes', ['potato_name' => 'Delete Spud Name', 'potato_country' => 'Delete Spud Country']);
-
         $potato1 = Potato::where('potato_name', '=', 'Delete Spud Name')->first();
 
         $this->assertEquals('Delete Spud Name', $potato1->potato_name);
         $this->assertEquals('Delete Spud Country', $potato1->potato_country);
 
-        $potato1ID = $potato1->id;
-
-        $this->actingAs($user)->delete("/potatoes/$potato1ID");
-
+        $this->actingAs($user)->delete("/potatoes/$potato1->id");
         $potato1 = Potato::where('potato_name', '=', 'Delete Spud Name')->first();
+
         $this->assertNull($potato1);
     }
 
@@ -52,22 +48,19 @@ class PotatoTest extends TestCase
     {
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/potatoes', ['potato_name' => 'Delete Spud Name', 'potato_country' => 'Delete Spud Country']);
-
         $potatoDel = Potato::where('potato_name', '=', 'Delete Spud Name')->first();
 
         $this->assertEquals('Delete Spud Name', $potatoDel->potato_name);
         $this->assertEquals('Delete Spud Country', $potatoDel->potato_country);
 
-        $potatoDelId = $potatoDel->id;
-
-        $this->actingAs($user)->put("/potatoes/$potatoDelId", ['potato_name' => 'Delete Spud Name', 'potato_country' => 'Edited Spud Country']);
-
+        $this->actingAs($user)->put("/potatoes/$potatoDel->id;", ['potato_name' => 'Delete Spud Name', 'potato_country' => 'Edited Spud Country']);
         $potatoDel = Potato::where('potato_name', '=', 'Delete Spud Name')->first();
+
         $this->assertEquals('Edited Spud Country', $potatoDel->potato_country);
 
-        $this->actingAs($user)->delete("/potatoes/$potatoDelId");
-
+        $this->actingAs($user)->delete("/potatoes/$potatoDel->id");
         $potatoDel = Potato::where('potato_name', '=', 'Delete Spud Name')->first();
+
         $this->assertNull($potatoDel);
     }
 }

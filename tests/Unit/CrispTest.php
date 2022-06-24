@@ -30,7 +30,6 @@ class CrispTest extends TestCase
     {
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/crisps', ['crisp_name' => 'Hula Hoops Original Crisps Multipack 12X24g', 'crisp_weight' => 24, 'crisp_review_score' => 2, 'crisp_review' => 'Ok salt and hardness, descent design', 'brand_id' === 12, 'flavour_id' => 4]);
-
         $crisp1 = Crisp::where('crisp_name', '=', 'Hula Hoops Original Crisps Multipack 12X24g')->first();
 
         $this->assertEquals('Hula Hoops Original Crisps Multipack 12X24g', $crisp1->crisp_name);

@@ -20,7 +20,6 @@ class FlavourTest extends TestCase
     {
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/flavours', ['flavour_name' => 'Shrimp']);
-
         $flavour1 = Flavour::where('flavour_name', '=', 'Shrimp')->first();
 
         $this->assertEquals('Shrimp', $flavour1->flavour_name);
@@ -30,16 +29,13 @@ class FlavourTest extends TestCase
     {
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/flavours', ['flavour_name' => 'Delete Flavour Name']);
-
         $flavour1 = Flavour::where('flavour_name', '=', 'Delete Flavour Name')->first();
 
         $this->assertEquals('Delete Flavour Name', $flavour1->flavour_name);
 
-        $flavourID = $flavour1->id;
-
-        $this->actingAs($user)->delete("/flavours/$flavourID");
-
+        $this->actingAs($user)->delete("/flavours/$flavour1->id;");
         $flavour1 = Flavour::where('flavour_name', '=', 'Delete Flavour Name')->first();
+
         $this->assertNull($flavour1);
     }
 
@@ -47,24 +43,18 @@ class FlavourTest extends TestCase
     {
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/flavours', ['flavour_name' => 'Delete Flavour Name']);
-
         $flavour1 = Flavour::where('flavour_name', '=', 'Delete Flavour Name')->first();
 
         $this->assertEquals('Delete Flavour Name', $flavour1->flavour_name);
 
-        $flavourID = $flavour1->id;
-
-        $this->actingAs($user)->put("/flavours/$flavourID", ['flavour_name' => 'Edited Flavour Name']);
-
+        $this->actingAs($user)->put("/flavours/$flavour1->id", ['flavour_name' => 'Edited Flavour Name']);
         $flavour1 = Flavour::where('flavour_name', '=', 'Edited Flavour Name')->first();
 
         $this->assertEquals('Edited Flavour Name', $flavour1->flavour_name);
 
-        $flavourID = $flavour1->id;
-
-        $this->actingAs($user)->delete("/flavours/$flavourID");
-
+        $this->actingAs($user)->delete("/flavours/$flavour1->id");
         $flavour1 = Flavour::where('flavour_name', '=', 'Edited Flavour Name')->first();
+
         $this->assertNull($flavour1);
     }
 }

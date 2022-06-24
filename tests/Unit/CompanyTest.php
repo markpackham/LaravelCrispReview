@@ -26,7 +26,6 @@ class CompanyTest extends TestCase
     {
         $user = User::where('id', '=', 1)->first();
         $this->actingAs($user)->post('/companies', ['company_name' => 'Burts Snacks Ltd', 'company_address' => 'The Klamp House, Belliver Way, Roborough, Plymouth, PL6 7BP', 'company_phone' => '0800 023 7404', 'company_website' => 'https://www.burtssnacks.com/']);
-
         $company1 = Company::where('company_name', '=', 'Burts Snacks Ltd')->first();
 
         $this->assertEquals('Burts Snacks Ltd', $company1->company_name);
@@ -47,11 +46,9 @@ class CompanyTest extends TestCase
         $this->assertEquals('0800 023 7404', $company1->company_phone);
         $this->assertEquals('https://www.burtssnacks.com/', $company1->company_website);
 
-        $companyID = $company1->id;
-
-        $this->actingAs($user)->delete("/companies/$companyID");
-
+        $this->actingAs($user)->delete("/companies/$company1->id");
         $company1 = Company::where('company_name', '=', 'Delete Company Name')->first();
+
         $this->assertNull($company1);
     }
 
@@ -66,8 +63,7 @@ class CompanyTest extends TestCase
         $this->assertEquals('0800 023 7404', $company1->company_phone);
         $this->assertEquals('https://www.burtssnacks.com/', $company1->company_website);
 
-        $companyID = $company1->id;
-        $this->actingAs($user)->put("/companies/$companyID", ['company_name' => 'Delete Company Name', 'company_address' => 'zzzzzzz', 'company_phone' => '1234567', 'company_website' => 'https://www.zzzzzzz.com/']);
+        $this->actingAs($user)->put("/companies/$company1->id", ['company_name' => 'Delete Company Name', 'company_address' => 'zzzzzzz', 'company_phone' => '1234567', 'company_website' => 'https://www.zzzzzzz.com/']);
         $company1 = Company::where('company_name', '=', 'Delete Company Name')->first();
 
         $this->assertEquals('Delete Company Name', $company1->company_name);
@@ -75,7 +71,7 @@ class CompanyTest extends TestCase
         $this->assertEquals('1234567', $company1->company_phone);
         $this->assertEquals('https://www.zzzzzzz.com/', $company1->company_website);
 
-        $this->actingAs($user)->delete("/companies/$companyID");
+        $this->actingAs($user)->delete("/companies/$company1->id");
         $company1 = Company::where('company_name', '=', 'Delete Company Name')->first();
 
         $this->assertNull($company1);
