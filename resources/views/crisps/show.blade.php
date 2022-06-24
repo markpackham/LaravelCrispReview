@@ -7,9 +7,11 @@
         <p>Brand: {{ $crisp->brand->brand_name }}</p>
         <p>Flavour: {{ $crisp->flavour->flavour_name }}</p>
 
-        <img class="mt-2"
-            src="{{ $crisp->crisp_image ? asset('storage/' . $crisp->crisp_image) : asset('/images/no-image.png') }}"
-            alt="{{ $crisp->crisp_name }} crisp_image" />
+        <div class="container">
+            <img class="mt-2"
+                src="{{ $crisp->crisp_image ? asset('storage/' . $crisp->crisp_image) : asset('/images/no-image.png') }}"
+                alt="{{ $crisp->crisp_name }} crisp_image" />
+        </div>
 
         <a class="btn btn-secondary" href="{{ route('crisps') }}">
             Back <i class="fa-solid fa-arrow-left"></i>
