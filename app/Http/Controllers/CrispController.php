@@ -50,8 +50,8 @@ class CrispController extends Controller
 
         $formFields = $request->validate([
             'crisp_name' => 'required|unique:crisps,crisp_name',
-            'crisp_weight' => 'required|numeric',
-            'crisp_review_score' => 'numeric',
+            'crisp_weight' => 'required|numeric|min:1',
+            'crisp_review_score' => 'numeric|min:1',
             'crisp_review' => 'required_with:crisp_review_score',
             'brand_id' => 'required',
             'flavour_id' => 'required',
@@ -103,8 +103,8 @@ class CrispController extends Controller
     {
         $formFields = $request->validate([
             'crisp_name' => 'required',
-            'crisp_weight' => 'required|numeric',
-            'crisp_review_score' => 'numeric',
+            'crisp_weight' => 'required|numeric|min:1',
+            'crisp_review_score' => 'numeric|min:1',
             'crisp_review' => 'required_with:crisp_review_score',
             'brand_id' => 'required',
             'flavour_id' => 'required',
