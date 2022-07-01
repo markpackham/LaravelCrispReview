@@ -8,7 +8,7 @@
         <p>Flavour: {{ $crisp->flavour->flavour_name }}</p>
 
         <div class="container">
-            <img class="mt-2"
+            <img class="crisp-image mt-2"
                 src="{{ $crisp->crisp_image ? asset('storage/' . $crisp->crisp_image) : asset('/images/no-image.png') }}"
                 alt="{{ $crisp->crisp_name }} crisp_image" />
         </div>
@@ -18,7 +18,7 @@
         </a>
 
         @auth
-            <a class="btn btn-secondary" href="/crisps/{{ $crisp->id }}/edit">
+            <a class="btn btn-primary" href="/crisps/{{ $crisp->id }}/edit">
                 Edit <i class="fa-solid fa-pencil"></i>
             </a>
 

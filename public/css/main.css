@@ -46,6 +46,10 @@ ul {
 
 /* Classes */
 
+.crisp-image {
+    max-width: 820px;
+}
+
 .crisp_image_mix {
     width: 100%;
     max-width: 820px;

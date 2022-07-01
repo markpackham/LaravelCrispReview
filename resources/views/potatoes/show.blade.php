@@ -8,7 +8,7 @@
         </a>
 
         @auth
-            <a class="btn btn-secondary" href="/potatoes/{{ $potato->id }}/edit">
+            <a class="btn btn-primary" href="/potatoes/{{ $potato->id }}/edit">
                 Edit <i class="fa-solid fa-pencil"></i>
             </a>
 

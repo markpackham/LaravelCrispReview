@@ -76,5 +76,8 @@
         <button class="btn btn-success mt-2">
             Update Crisp
         </button>
+        <a class="btn btn-secondary mt-2" href="{{ route('crisps') }}">
+            Back <i class="fa-solid fa-arrow-left"></i>
+        </a>
     </form>
 </x-layout>

@@ -22,5 +22,8 @@
         <button class="btn btn-success mt-2">
             Update Potato
         </button>
+        <a class="btn btn-secondary mt-2" href="{{ route('potatoes') }}">
+            Back <i class="fa-solid fa-arrow-left"></i>
+        </a>
     </form>
 </x-layout>

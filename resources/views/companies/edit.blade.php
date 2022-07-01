@@ -13,7 +13,8 @@
 
         <div class="form-group">
             <label for="company_address">Company Address</label>
-            <input class="form-control" type="text" name="company_address" value="{{ $company->company_address }}" />
+            <input class="form-control" type="text" name="company_address"
+                value="{{ $company->company_address }}" />
             @error('company_address')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -39,5 +40,8 @@
         <button class="btn btn-success mt-2">
             Update Company
         </button>
+        <a class="btn btn-secondary mt-2" href="{{ route('companies') }}">
+            Back <i class="fa-solid fa-arrow-left"></i>
+        </a>
     </form>
 </x-layout>
