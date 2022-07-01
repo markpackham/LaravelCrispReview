@@ -6,9 +6,7 @@
         @if (count($flavours) > 0)
             <ul class="index-list row align-items-start">
                 @foreach ($flavours as $flavour)
-                    <div class="col-4 mt-1"><a
-                            href="flavours/{{ $flavour->id }}">{{ $flavour->flavour_name }}</a>
-                    </div>
+                    <x-flavour-card :flavour="$flavour" />
                 @endforeach
             </ul>
         @else
