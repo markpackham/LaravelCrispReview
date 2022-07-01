@@ -5,7 +5,7 @@
         @if (count($potatoes) > 0)
             <ul class="index-list row align-items-start">
                 @foreach ($potatoes as $potato)
-                    <x-potato-card-item :potato="$potato" />
+                    <x-potato-card :potato="$potato" />
                 @endforeach
             </ul>
         @else
