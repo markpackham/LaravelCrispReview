@@ -5,11 +5,7 @@
         @if (count($brands) > 0)
             <ul class="index-list row align-items-start">
                 @foreach ($brands as $brand)
-                    <div class="col-6 mt-1">
-                        <h3 class="text-lg"><a href="brands/{{ $brand->id }}">{{ $brand->brand_name }}</a>
-                        </h3>
-                        <h4 name="brand_company_name">{{ $brand->company->company_name }}</h4>
-                    </div>
+                    <x-brand-card :brand="$brand" />
                 @endforeach
             </ul>
         @else
