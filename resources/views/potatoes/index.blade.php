@@ -5,10 +5,7 @@
         @if (count($potatoes) > 0)
             <ul class="index-list row align-items-start">
                 @foreach ($potatoes as $potato)
-                    <div class="col-4 mt-1">
-                        <a href="potatoes/{{ $potato->id }}">
-                            {{ $potato->potato_name }}</a> : {{ $potato->potato_country }}
-                    </div>
+                    <x-potato-card-item :potato="$potato" />
                 @endforeach
             </ul>
         @else
